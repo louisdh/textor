@@ -91,11 +91,11 @@ extension UIViewController {
 		
 		if retryCallback == nil {
 			
-			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "error_occured_try_again_btn", dismissCallback: dismissCallback)
+			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "Retry", dismissCallback: dismissCallback)
 			
 		} else {
 			
-			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "error_occured_try_again_btn", retryCallback: retryCallback, dismissCallback: dismissCallback)
+			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "Retry", retryCallback: retryCallback, dismissCallback: dismissCallback)
 			
 		}
 		
@@ -108,16 +108,39 @@ class DocumentViewController: UIViewController {
 	
 	@IBOutlet weak var textView: UITextView!
 	var document: Document?
-    
+	
+	let keyboardObserver = KeyboardObserver()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 		
 		self.navigationController?.view.tintColor = .appTintColor
 		view.tintColor = .appTintColor
 
+		keyboardObserver.observe { [weak self] (state) in
+			
+			guard let textView = self?.textView else {
+				return
+			}
+			
+			let rect = textView.convert(state.keyboardFrameEnd, from: nil).intersection(textView.bounds)
+			
+			UIView.animate(withDuration: state.duration, delay: 0.0, options: state.options, animations: {
+				
+				textView.contentInset.bottom = rect.height
+				textView.scrollIndicatorInsets.bottom = rect.height
+				
+			}, completion: nil)
+			
+		}
+		
 		textView.text = ""
 
-		document?.open(completionHandler: { (success) in
+		document?.open(completionHandler: { [weak self] (success) in
+			
+			guard let `self` = self else {
+				return
+			}
 			
             if success {
 				
@@ -128,13 +151,12 @@ class DocumentViewController: UIViewController {
 
             } else {
 				
-				self.showErrorAlert(dismissCallback: {
-					
+				self.showAlert("Error", message: "Document could not be opened.", dismissCallback: {
 					self.dismiss(animated: true, completion: nil)
-					
 				})
 				
             }
+			
         })
     }
     

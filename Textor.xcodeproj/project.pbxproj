@@ -15,6 +15,7 @@
 		BE000C311FF9451F00D06B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE000C301FF9451F00D06B91 /* Assets.xcassets */; };
 		BE000C341FF9451F00D06B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE000C321FF9451F00D06B91 /* LaunchScreen.storyboard */; };
 		BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31644D1FF95FF00071AE58 /* DocumentManager.swift */; };
+		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		BE000C351FF9451F00D06B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE000C3B1FF94F9B00D06B91 /* Textor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Textor.entitlements; sourceTree = "<group>"; };
 		BE31644D1FF95FF00071AE58 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		BE000C241FF9451F00D06B91 /* Textor */ = {
 			isa = PBXGroup;
 			children = (
+				BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */,
 				BE000C3B1FF94F9B00D06B91 /* Textor.entitlements */,
 				BE000C251FF9451F00D06B91 /* AppDelegate.swift */,
 				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
@@ -156,6 +159,7 @@
 				BE000C2A1FF9451F00D06B91 /* DocumentViewController.swift in Sources */,
 				BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */,
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
+				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
 				BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
