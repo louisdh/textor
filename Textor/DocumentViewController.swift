@@ -8,6 +8,102 @@
 
 import UIKit
 
+extension UIViewController {
+	
+	@objc func showAlert(_ title: String, message: String) {
+		
+		showAlert(title, message: message, callbackBtnTitle: nil, retryCallback: nil, dismissCallback: nil)
+	}
+	
+	@objc func showAlert(_ title: String, message: String, dismissCallback: @escaping (() -> Void)) {
+		
+		showAlert(title, message: message, callbackBtnTitle: nil, retryCallback: nil, dismissCallback: dismissCallback)
+		
+	}
+	
+	@objc func showAlert(_ title: String, message: String? = nil, callbackBtnTitle: String? = nil, retryCallback: (() -> Void)? = nil, dismissCallback: (() -> Void)? = nil) {
+		
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		
+		if let retry = retryCallback, let callbackTitle = callbackBtnTitle {
+			
+			alert.addAction(UIAlertAction(title: callbackTitle, style: .default, handler: { (a) -> Void in
+				retry()
+			}))
+			
+			if let dismiss = dismissCallback {
+				
+				alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (a) -> Void in
+					dismiss()
+				}))
+				
+			}
+			
+		} else {
+			
+			if let dismiss = dismissCallback {
+				
+				alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (a) -> Void in
+					dismiss()
+				}))
+				
+			} else {
+				
+				alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+				
+			}
+			
+		}
+		
+//		alert.view.tintColor = .main
+		
+		self.present(alert, animated: true) { () -> Void in
+			
+//			alert.view.tintColor = .foreground()
+			
+		}
+		
+	}
+	
+	@objc func showErrorAlert(_ error: Error?) {
+		
+		showErrorAlert(error, res: nil, retryCallback: nil, dismissCallback: nil)
+	}
+	
+	@objc func showErrorAlert(_ error: Error? = nil, res: HTTPURLResponse? = nil, retryCallback: (() -> Void)? = nil, dismissCallback: (() -> Void)? = nil) {
+		
+		var errorTitle = "Error"
+		var errorMessage = ""
+		
+		
+		if errorMessage == "" {
+			// TODO: add error code?
+			if let error = error {
+				errorMessage = error.localizedDescription
+			}
+		}
+		
+		if errorMessage == "" {
+			
+			errorMessage = "An error occurred"
+			
+		}
+		
+		if retryCallback == nil {
+			
+			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "error_occured_try_again_btn", dismissCallback: dismissCallback)
+			
+		} else {
+			
+			self.showAlert(errorTitle, message: errorMessage, callbackBtnTitle: "error_occured_try_again_btn", retryCallback: retryCallback, dismissCallback: dismissCallback)
+			
+		}
+		
+	}
+	
+	
+}
+
 class DocumentViewController: UIViewController {
 	
 	@IBOutlet weak var textView: UITextView!
@@ -20,16 +116,24 @@ class DocumentViewController: UIViewController {
 		view.tintColor = .appTintColor
 
 		textView.text = ""
-        // Access the document
-        document?.open(completionHandler: { (success) in
+
+		document?.open(completionHandler: { (success) in
+			
             if success {
 				
 				self.textView.text = self.document?.text
+				
+				// Calculate layout for full document, so scrolling is smooth.
+				self.textView.layoutManager.ensureLayout(forCharacterRange: NSRange(location: 0, length: self.textView.text.count))
 
-                // Display the content of the document, e.g.:
-//                self.documentNameLabel.text = self.document?.fileURL.lastPathComponent
             } else {
-                // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+				
+				self.showErrorAlert(dismissCallback: {
+					
+					self.dismiss(animated: true, completion: nil)
+					
+				})
+				
             }
         })
     }

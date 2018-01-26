@@ -17,6 +17,8 @@ class Document: UIDocument {
 	
 	var text: String?
 	
+	var encodingUsed: String.Encoding?
+	
     override func contents(forType typeName: String) throws -> Any {
 		
 		guard let data = text?.data(using: .utf8) else {
@@ -32,11 +34,11 @@ class Document: UIDocument {
 			throw DocumentError.loadError
 		}
 		
-		guard let text = String(data: data, encoding: .utf8) else {
+		guard let utf8 = String(data: data, encoding: .utf8) else {
 			throw DocumentError.loadError
 		}
 		
-		self.text = text
+		self.text = utf8
 		
     }
 }
