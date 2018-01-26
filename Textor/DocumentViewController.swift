@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 extension UIViewController {
 	
@@ -104,6 +105,10 @@ extension UIViewController {
 	
 }
 
+var hasAskedForReview = false
+
+var documentsClosed = 0
+
 class DocumentViewController: UIViewController {
 	
 	@IBOutlet weak var textView: UITextView!
@@ -159,6 +164,18 @@ class DocumentViewController: UIViewController {
 			
         })
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+	
+		documentsClosed += 1
+		
+		if !hasAskedForReview && documentsClosed >= 4 {
+			hasAskedForReview = true
+			SKStoreReviewController.requestReview()
+		}
+		
+	}
     
     @IBAction func dismissDocumentViewController() {
 		
