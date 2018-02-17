@@ -15,6 +15,8 @@
 		BE000C311FF9451F00D06B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE000C301FF9451F00D06B91 /* Assets.xcassets */; };
 		BE000C341FF9451F00D06B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE000C321FF9451F00D06B91 /* LaunchScreen.storyboard */; };
 		BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31644D1FF95FF00071AE58 /* DocumentManager.swift */; };
+		BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */; };
+		BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE41032038DD45004889F0 /* UIColor+Named.swift */; };
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		BE000C351FF9451F00D06B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE000C3B1FF94F9B00D06B91 /* Textor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Textor.entitlements; sourceTree = "<group>"; };
 		BE31644D1FF95FF00071AE58 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		BECE41032038DD45004889F0 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
 		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,19 +67,45 @@
 		BE000C241FF9451F00D06B91 /* Textor */ = {
 			isa = PBXGroup;
 			children = (
-				BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */,
+				BECE41022038DCF5004889F0 /* Model */,
+				BECE41012038DCED004889F0 /* Controller */,
+				BECE41002038DCE9004889F0 /* Util */,
 				BE000C3B1FF94F9B00D06B91 /* Textor.entitlements */,
 				BE000C251FF9451F00D06B91 /* AppDelegate.swift */,
-				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
-				BE000C291FF9451F00D06B91 /* DocumentViewController.swift */,
-				BE000C2B1FF9451F00D06B91 /* Document.swift */,
 				BE000C2D1FF9451F00D06B91 /* Main.storyboard */,
 				BE000C301FF9451F00D06B91 /* Assets.xcassets */,
 				BE000C321FF9451F00D06B91 /* LaunchScreen.storyboard */,
 				BE000C351FF9451F00D06B91 /* Info.plist */,
-				BE31644D1FF95FF00071AE58 /* DocumentManager.swift */,
 			);
 			path = Textor;
+			sourceTree = "<group>";
+		};
+		BECE41002038DCE9004889F0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */,
+				BE31644D1FF95FF00071AE58 /* DocumentManager.swift */,
+				BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */,
+				BECE41032038DD45004889F0 /* UIColor+Named.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BECE41012038DCED004889F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
+				BE000C291FF9451F00D06B91 /* DocumentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BECE41022038DCF5004889F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE000C2B1FF9451F00D06B91 /* Document.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +188,10 @@
 				BE000C2C1FF9451F00D06B91 /* Document.swift in Sources */,
 				BE000C2A1FF9451F00D06B91 /* DocumentViewController.swift in Sources */,
 				BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */,
+				BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */,
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
+				BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */,
 				BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

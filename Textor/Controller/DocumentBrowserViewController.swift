@@ -8,14 +8,6 @@
 
 import UIKit
 
-extension UIColor {
-	
-	static var appTintColor: UIColor {
-		return UIColor(named: "Tint Color")!
-	}
-	
-}
-
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
     
     override func viewDidLoad() {
