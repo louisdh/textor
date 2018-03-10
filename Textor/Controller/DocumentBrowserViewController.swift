@@ -39,7 +39,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") == true || true {
+		if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") == true {
 			
 			var snapshotDocuments = ["The Crazy Ones.txt", "Planets.txt", "Circle.svg"]
 			
