@@ -7,6 +7,9 @@
 //
 
 import UIKit
+#if SCREENSHOTS
+import SimulatorStatusMagic
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		window?.tintColor = .appTintColor
 		
+		#if SCREENSHOTS
+		SDStatusBarManager.sharedInstance().enableOverrides()
+		#endif
+
 		return true
 	}
 

@@ -34,6 +34,31 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 		self.additionalLeadingNavigationBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .done, target: self, action: #selector(showSettings))]
 	}
 	
+	var snapshotDocumentIndex = 0
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") == true || true {
+			
+			var snapshotDocuments = ["The Crazy Ones.txt", "Planets.txt", "Circle.svg"]
+			
+			if self.view.bounds.width > 600 {
+				snapshotDocuments.append("Pharaoh.txt")
+			} else {
+				snapshotDocuments.append("Mouse.txt")
+			}
+			
+			let url = Bundle.main.url(forResource: snapshotDocuments[snapshotDocumentIndex], withExtension: nil)!
+			
+			presentDocument(at: url)
+			
+			snapshotDocumentIndex += 1
+			
+		}
+	
+	}
+	
 	@objc
 	func showSettings() {
 		
@@ -100,7 +125,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     }
     
     // MARK: Document Presentation
-    
+	
     func presentDocument(at documentURL: URL) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)

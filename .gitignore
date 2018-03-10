@@ -18,3 +18,12 @@ DerivedData
 *.ipa
 *.xcuserstate
 .build
+
+*.ipa
+*.zip
+
+fastlane/metadata/
+fastlane/screenshots/
+
+fastlane/Deliverfile
+fastlane/report.xml
