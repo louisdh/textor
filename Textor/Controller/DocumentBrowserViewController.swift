@@ -30,8 +30,20 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Specify the allowed content types of your application via the Info.plist.
         
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
+		
+		self.additionalLeadingNavigationBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .done, target: self, action: #selector(showSettings))]
+	}
+	
+	@objc
+	func showSettings() {
+		
+		let settingsVC = self.storyboard!.instantiateViewController(withIdentifier: "SettingsViewController")
+		
+		let navCon = UINavigationController(rootViewController: settingsVC)
+		navCon.modalPresentationStyle = .formSheet
+		
+		self.present(navCon, animated: true, completion: nil)
+	}
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     

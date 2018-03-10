@@ -17,6 +17,7 @@
 		BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31644D1FF95FF00071AE58 /* DocumentManager.swift */; };
 		BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */; };
 		BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE41032038DD45004889F0 /* UIColor+Named.swift */; };
+		BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CAB320543936007968FF /* SettingsViewController.swift */; };
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		BE31644D1FF95FF00071AE58 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		BECE41032038DD45004889F0 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
+		BED3CAB320543936007968FF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			children = (
 				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
 				BE000C291FF9451F00D06B91 /* DocumentViewController.swift */,
+				BED3CAB320543936007968FF /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
 				BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */,
 				BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */,
+				BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
