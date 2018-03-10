@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A3FD70D1F2610010DF9625A /* Pods_Textor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E53ED7F36F7596674975E47 /* Pods_Textor.framework */; };
 		BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE000C251FF9451F00D06B91 /* AppDelegate.swift */; };
 		BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */; };
 		BE000C2A1FF9451F00D06B91 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE000C291FF9451F00D06B91 /* DocumentViewController.swift */; };
@@ -18,10 +19,13 @@
 		BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */; };
 		BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE41032038DD45004889F0 /* UIColor+Named.swift */; };
 		BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CAB320543936007968FF /* SettingsViewController.swift */; };
+		BED3CAB72054405A007968FF /* t1.txt in Resources */ = {isa = PBXBuildFile; fileRef = BED3CAB62054405A007968FF /* t1.txt */; };
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E53ED7F36F7596674975E47 /* Pods_Textor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Textor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FA62BBBE3A16CF4D515238 /* Pods-Textor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.debug.xcconfig"; sourceTree = "<group>"; };
 		BE000C221FF9451F00D06B91 /* Textor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Textor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE000C251FF9451F00D06B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +40,9 @@
 		BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		BECE41032038DD45004889F0 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
 		BED3CAB320543936007968FF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BED3CAB62054405A007968FF /* t1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = t1.txt; sourceTree = "<group>"; };
 		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,17 +50,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3FD70D1F2610010DF9625A /* Pods_Textor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EC7BFC2A5E1294FF223AB50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42FA62BBBE3A16CF4D515238 /* Pods-Textor.debug.xcconfig */,
+				C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BE000C191FF9451F00D06B91 = {
 			isa = PBXGroup;
 			children = (
 				BE000C241FF9451F00D06B91 /* Textor */,
 				BE000C231FF9451F00D06B91 /* Products */,
+				6EC7BFC2A5E1294FF223AB50 /* Pods */,
+				FF48B97708CE1B3F9B5381B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +87,7 @@
 		BE000C241FF9451F00D06B91 /* Textor */ = {
 			isa = PBXGroup;
 			children = (
+				BED3CAB52054403D007968FF /* Screenshot files */,
 				BECE41022038DCF5004889F0 /* Model */,
 				BECE41012038DCED004889F0 /* Controller */,
 				BECE41002038DCE9004889F0 /* Util */,
@@ -111,6 +130,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BED3CAB52054403D007968FF /* Screenshot files */ = {
+			isa = PBXGroup;
+			children = (
+				BED3CAB62054405A007968FF /* t1.txt */,
+			);
+			path = "Screenshot files";
+			sourceTree = "<group>";
+		};
+		FF48B97708CE1B3F9B5381B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E53ED7F36F7596674975E47 /* Pods_Textor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE000C381FF9451F00D06B91 /* Build configuration list for PBXNativeTarget "Textor" */;
 			buildPhases = (
+				7AC02E7F7630FC3BE7ADEE56 /* [CP] Check Pods Manifest.lock */,
 				BE000C1E1FF9451F00D06B91 /* Sources */,
 				BE000C1F1FF9451F00D06B91 /* Frameworks */,
 				BE000C201FF9451F00D06B91 /* Resources */,
+				B4B611D7518E584FBA9B903F /* [CP] Embed Pods Frameworks */,
+				198F67957279678F46E6CEA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,12 +214,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE000C341FF9451F00D06B91 /* LaunchScreen.storyboard in Resources */,
+				BED3CAB72054405A007968FF /* t1.txt in Resources */,
 				BE000C311FF9451F00D06B91 /* Assets.xcassets in Resources */,
 				BE000C2F1FF9451F00D06B91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		198F67957279678F46E6CEA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Textor/Pods-Textor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AC02E7F7630FC3BE7ADEE56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Textor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B611D7518E584FBA9B903F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Textor/Pods-Textor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Textor/Pods-Textor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE000C1E1FF9451F00D06B91 /* Sources */ = {
@@ -331,6 +424,7 @@
 		};
 		BE000C391FF9451F00D06B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42FA62BBBE3A16CF4D515238 /* Pods-Textor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Textor/Textor.entitlements;
@@ -351,6 +445,7 @@
 		};
 		BE000C3A1FF9451F00D06B91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Textor/Textor.entitlements;

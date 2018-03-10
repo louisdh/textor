@@ -1,0 +1,12 @@
+PODS:
+  - SimulatorStatusMagic (1.9.5)
+
+DEPENDENCIES:
+  - SimulatorStatusMagic (~> 1.9)
+
+SPEC CHECKSUMS:
+  SimulatorStatusMagic: b3b4c5c49a07e8b1c452cc0327275e267a865fea
+
+PODFILE CHECKSUM: e30934b3b06e8053e51120283d56c75edded16d8
+
+COCOAPODS: 1.4.0
