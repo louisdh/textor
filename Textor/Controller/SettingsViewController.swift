@@ -37,9 +37,13 @@ extension Bundle {
 
 class SettingsViewController: UITableViewController {
 	
-	override func viewDidLoad() {
+    @IBOutlet weak var fontSizeStepper: UIStepper!
+    @IBOutlet weak var fontSizeLabel: UILabel!
+    
+    override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		fontSizeStepper.value = UserDefaults.standard.double(forKey: "fontSize")
+        fontSizeLabel.text = "\(Int(fontSizeStepper.value))"
 	}
 	
 	override func viewWillLayoutSubviews() {
@@ -48,11 +52,15 @@ class SettingsViewController: UITableViewController {
 	}
 
 	@IBAction func close(_ sender: UIBarButtonItem) {
-		
 		self.dismiss(animated: true, completion: nil)
 		
 	}
-	
+    
+    @IBAction func fontSizeChanged(_ sender: UIStepper) {
+        UserDefaults.standard.set(sender.value, forKey: "fontSize")
+        fontSizeLabel.text = "\(Int(sender.value))"
+    }
+
 	override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
 		
 		let footer = view as? UITableViewHeaderFooterView
