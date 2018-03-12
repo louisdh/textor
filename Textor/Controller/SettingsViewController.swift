@@ -39,11 +39,14 @@ class SettingsViewController: UITableViewController {
 	
     @IBOutlet weak var fontSizeStepper: UIStepper!
     @IBOutlet weak var fontSizeLabel: UILabel!
+    @IBOutlet weak var darkThemeSwitch: UISwitch!
     
     override func viewDidLoad() {
 		super.viewDidLoad()
 		fontSizeStepper.value = UserDefaults.standard.double(forKey: "fontSize")
         fontSizeLabel.text = "\(Int(fontSizeStepper.value))"
+        
+        darkThemeSwitch.isOn = UserDefaults.standard.bool(forKey: "darkMode")
 	}
 	
 	override func viewWillLayoutSubviews() {
@@ -60,7 +63,14 @@ class SettingsViewController: UITableViewController {
         UserDefaults.standard.set(sender.value, forKey: "fontSize")
         fontSizeLabel.text = "\(Int(sender.value))"
     }
-
+    
+    @IBAction func themeChanged(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
+        let alert = UIAlertController(title: "Theme updated!", message: "Restart the app for changes to take effect", preferredStyle: .alert)
+        alert.addAction(.init(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 	override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
 		
 		let footer = view as? UITableViewHeaderFooterView

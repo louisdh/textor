@@ -21,12 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		
 		window?.tintColor = .appTintColor
-		
-		let usrDefaults = UserDefaults.standard
-        	if usrDefaults.double(forKey: "fontSize") == 0 {
+        
+                let usrDefaults = UserDefaults.standard
+		if usrDefaults.double(forKey: "fontSize") == 0 {
 			usrDefaults.set(18, forKey: "fontSize")
-        	}
-		
+		}
 		
 		#if SCREENSHOTS
 		SDStatusBarManager.sharedInstance().enableOverrides()
