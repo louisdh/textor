@@ -25,7 +25,19 @@ class DocumentViewController: UIViewController {
 		
 		self.navigationController?.view.tintColor = .appTintColor
 		view.tintColor = .appTintColor
-
+        
+        let fontSize = CGFloat(UserDefaults.standard.float(forKey: "fontSize"))
+        textView.font = UIFont.systemFont(ofSize: fontSize)
+        
+        let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        if darkMode {
+            textView.textColor = .white
+            textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
+        } else {
+            textView.textColor = .black
+            textView.backgroundColor = .white
+        }
+        
 		keyboardObserver.observe { [weak self] (state) in
 			
 			guard let textView = self?.textView else {
