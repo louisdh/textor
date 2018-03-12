@@ -66,9 +66,7 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func themeChanged(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
-        let alert = UIAlertController(title: "Theme updated!", message: "Restart the app for changes to take effect", preferredStyle: .alert)
-        alert.addAction(.init(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        NotificationCenter.default.post(name: .init("themeChanged"), object: nil)
     }
     
 	override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
