@@ -22,7 +22,13 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsPickingMultipleItems = false
         
         // Update the style of the UIDocumentBrowserViewController
-//		browserUserInterfaceStyle = .light
+        let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        if darkMode {
+            browserUserInterfaceStyle = .dark
+        } else {
+            browserUserInterfaceStyle = .light
+        }
+		
 		
 //		UIApplication.shared.keyWindow?.tintColor = .purple
 		view.tintColor = .appTintColor
