@@ -26,7 +26,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         if darkMode {
             browserUserInterfaceStyle = .dark
         } else {
-            browserUserInterfaceStyle = .light
+            browserUserInterfaceStyle = .white
         }
 		
 		
