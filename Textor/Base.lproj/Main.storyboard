@@ -192,6 +192,42 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="4iT-Mx-VdZ">
+                                        <rect key="frame" x="0.0" y="216" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4iT-Mx-VdZ" id="VBm-cA-b8a">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7OQ-Z6-z7F">
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5D-SK-L6K">
+                                                            <rect key="frame" x="0.0" y="1.5" width="286" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-bG-JjJ">
+                                                            <rect key="frame" x="294" y="0.0" width="51" height="22"/>
+                                                            <color key="tintColor" name="Tint Color"/>
+                                                            <color key="onTintColor" name="Tint Color"/>
+                                                            <connections>
+                                                                <action selector="themeChanged:" destination="3tO-c6-rtm" eventType="valueChanged" id="IxW-34-mWK"/>
+                                                            </connections>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7OQ-Z6-z7F" firstAttribute="leading" secondItem="VBm-cA-b8a" secondAttribute="leadingMargin" id="W0Q-1m-rzg"/>
+                                                <constraint firstItem="7OQ-Z6-z7F" firstAttribute="top" secondItem="VBm-cA-b8a" secondAttribute="topMargin" id="aPF-zE-YC4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7OQ-Z6-z7F" secondAttribute="bottom" id="hKS-qq-9Wc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7OQ-Z6-z7F" secondAttribute="trailing" id="vda-Ro-JSS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -210,6 +246,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="darkThemeSwitch" destination="6jF-bG-JjJ" id="pGz-O9-wvW"/>
                         <outlet property="fontSizeLabel" destination="ciR-qS-fNX" id="47c-Ic-rl5"/>
                         <outlet property="fontSizeStepper" destination="0sU-4x-Pih" id="fji-b2-Aic"/>
                     </connections>
