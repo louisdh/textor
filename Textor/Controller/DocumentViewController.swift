@@ -94,7 +94,20 @@ class DocumentViewController: UIViewController {
 		}
 		
 	}
-    
+	
+	@IBAction func shareDocument(_ sender: UIBarButtonItem) {
+		
+		guard let url = document?.fileURL else {
+			return
+		}
+	
+		let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+		
+		activityVC.popoverPresentationController?.barButtonItem = sender
+		
+		self.present(activityVC, animated: true, completion: nil)
+	}
+	
     @IBAction func dismissDocumentViewController() {
 		
 		let currentText = self.document?.text ?? ""
