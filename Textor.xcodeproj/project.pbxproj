@@ -29,6 +29,8 @@
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
 		BEDDAB152058745300AC9396 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB142058745300AC9396 /* Notification+Name.swift */; };
 		BEDDAB1720587C1700AC9396 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB1620587C1700AC9396 /* UserDefaultsController.swift */; };
+		BEDDAB192058811F00AC9396 /* Bundle+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB182058811F00AC9396 /* Bundle+Info.swift */; };
+		BEDDAB1B2058813800AC9396 /* UIDevice+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		BEDDAB142058745300AC9396 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		BEDDAB1620587C1700AC9396 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
+		BEDDAB182058811F00AC9396 /* Bundle+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Info.swift"; sourceTree = "<group>"; };
+		BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Name.swift"; sourceTree = "<group>"; };
 		C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +151,8 @@
 				BECE41032038DD45004889F0 /* UIColor+Named.swift */,
 				BEDDAB142058745300AC9396 /* Notification+Name.swift */,
 				BEDDAB1620587C1700AC9396 /* UserDefaultsController.swift */,
+				BEDDAB182058811F00AC9396 /* Bundle+Info.swift */,
+				BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -372,12 +378,14 @@
 				BE000C2C1FF9451F00D06B91 /* Document.swift in Sources */,
 				BEDDAB1720587C1700AC9396 /* UserDefaultsController.swift in Sources */,
 				BE000C2A1FF9451F00D06B91 /* DocumentViewController.swift in Sources */,
+				BEDDAB1B2058813800AC9396 /* UIDevice+Name.swift in Sources */,
 				BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */,
 				BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */,
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
 				BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */,
 				BEDDAB152058745300AC9396 /* Notification+Name.swift in Sources */,
+				BEDDAB192058811F00AC9396 /* Bundle+Info.swift in Sources */,
 				BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */,
 				BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */,
 			);

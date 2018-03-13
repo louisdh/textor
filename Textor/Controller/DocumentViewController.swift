@@ -18,7 +18,7 @@ class DocumentViewController: UIViewController {
 	@IBOutlet weak var textView: UITextView!
 	var document: Document?
 	
-	let keyboardObserver = KeyboardObserver()
+	private let keyboardObserver = KeyboardObserver()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
