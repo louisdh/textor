@@ -114,7 +114,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
         guard let sourceURL = documentURLs.first else { return }
-        
+		
         // Present the Document View Controller for the first document that was picked.
         // If you support picking multiple items, make sure you handle them all.
         presentDocument(at: sourceURL)
@@ -131,16 +131,36 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     // MARK: Document Presentation
 	
+	var transitionController: UIDocumentBrowserTransitionController?
+	
     func presentDocument(at documentURL: URL) {
-        
+
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
+		
+		transitionController = self.transitionController(forDocumentURL: documentURL)
+		transitionController?.targetView = documentViewController.textView
+		
         documentViewController.document = Document(fileURL: documentURL)
 		documentViewController.title = documentURL.lastPathComponent
 		
 		let navCon = UINavigationController(rootViewController: documentViewController)
 		
+		navCon.transitioningDelegate = self
+
         present(navCon, animated: true, completion: nil)
     }
+	
+}
+
+extension DocumentBrowserViewController: UIViewControllerTransitioningDelegate {
+	
+	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		return transitionController
+	}
+	
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		return transitionController
+	}
 	
 }
