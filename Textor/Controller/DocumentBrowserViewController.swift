@@ -25,17 +25,12 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Update the style of the UIDocumentBrowserViewController
         setTheme()
 		
-//		UIApplication.shared.keyWindow?.tintColor = .purple
 		view.tintColor = .appTintColor
-		
-        // Specify the allowed content types of your application via the Info.plist.
-        
-        // Do any additional setup after loading the view, typically from a nib.
 		
 		self.additionalLeadingNavigationBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .done, target: self, action: #selector(showSettings))]
 	}
 	
-    @objc func setTheme(){
+    @objc func setTheme() {
         let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
         if darkMode {
             self.browserUserInterfaceStyle = .dark
@@ -147,5 +142,5 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 		
         present(navCon, animated: true, completion: nil)
     }
+	
 }
-
