@@ -18,7 +18,25 @@ class DocumentViewController: UIViewController {
 	@IBOutlet weak var textView: UITextView!
 	var document: Document?
 	
-	let keyboardObserver = KeyboardObserver()
+    @IBOutlet var printBarButtonItem: UIBarButtonItem!
+    @IBAction func printDocument(_ sender: Any) {
+        let controller = UIPrintInteractionController.shared
+
+        let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.outputType = .general
+        printInfo.duplex = .longEdge
+        controller.printInfo = printInfo
+        
+        let viewFormatter = self.textView.viewPrintFormatter()
+        let printRenderer = UIPrintPageRenderer()
+        printRenderer.addPrintFormatter(viewFormatter, startingAtPageAt: 0)
+        
+        controller.printPageRenderer = printRenderer
+        controller.present(animated: true) { (controller, finished, error) in
+            NSLog("printed")
+        }
+    }
+    let keyboardObserver = KeyboardObserver()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,6 +44,10 @@ class DocumentViewController: UIViewController {
 		self.navigationController?.view.tintColor = .appTintColor
 		view.tintColor = .appTintColor
 
+        if (UIPrintInteractionController.isPrintingAvailable == false) {
+            printBarButtonItem.isEnabled = false
+        }
+        
 		keyboardObserver.observe { [weak self] (state) in
 			
 			guard let textView = self?.textView else {

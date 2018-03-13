@@ -60,9 +60,15 @@
                                 <action selector="dismissDocumentViewController" destination="M2k-L8-Olo" id="7FX-Q7-R0K"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Print" id="Hf6-z7-L87">
+                            <connections>
+                                <action selector="printDocument:" destination="M2k-L8-Olo" id="0kK-EA-wye"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="printBarButtonItem" destination="Hf6-z7-L87" id="tS8-XO-sNb"/>
                         <outlet property="textView" destination="msj-wu-c0o" id="oqe-Qy-9mY"/>
                     </connections>
                 </viewController>
