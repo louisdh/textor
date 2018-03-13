@@ -49,10 +49,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="msj-wu-c0o" firstAttribute="trailing" secondItem="BoZ-jc-2Y8" secondAttribute="trailing" id="Epd-jE-O9F"/>
-                            <constraint firstItem="msj-wu-c0o" firstAttribute="leading" secondItem="BoZ-jc-2Y8" secondAttribute="leading" id="QX6-jQ-91a"/>
+                            <constraint firstItem="msj-wu-c0o" firstAttribute="leading" secondItem="BoZ-jc-2Y8" secondAttribute="leading" id="Fhd-JO-PdX"/>
+                            <constraint firstAttribute="bottom" secondItem="msj-wu-c0o" secondAttribute="bottom" id="Lsa-33-pbo"/>
+                            <constraint firstItem="msj-wu-c0o" firstAttribute="trailing" secondItem="BoZ-jc-2Y8" secondAttribute="trailing" id="cRA-t5-aMp"/>
                             <constraint firstItem="msj-wu-c0o" firstAttribute="top" secondItem="SIE-Uh-Zny" secondAttribute="top" id="iMU-bZ-bpI"/>
-                            <constraint firstItem="msj-wu-c0o" firstAttribute="bottom" secondItem="BoZ-jc-2Y8" secondAttribute="bottom" id="kW0-ZW-TaR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BoZ-jc-2Y8"/>
                     </view>

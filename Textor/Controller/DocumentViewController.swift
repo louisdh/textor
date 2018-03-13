@@ -40,6 +40,8 @@ class DocumentViewController: UIViewController {
             textView.backgroundColor = .white
 			textView.keyboardAppearance = .default
         }
+		
+		self.view.backgroundColor = textView.backgroundColor
         
 		keyboardObserver.observe { [weak self] (state) in
 			
@@ -47,12 +49,16 @@ class DocumentViewController: UIViewController {
 				return
 			}
 			
+			guard let `self` = self else {
+				return
+			}
+			
 			let rect = textView.convert(state.keyboardFrameEnd, from: nil).intersection(textView.bounds)
 			
 			UIView.animate(withDuration: state.duration, delay: 0.0, options: state.options, animations: {
 				
-				textView.contentInset.bottom = rect.height
-				textView.scrollIndicatorInsets.bottom = rect.height
+				textView.contentInset.bottom = rect.height - self.view.safeAreaInsets.bottom
+				textView.scrollIndicatorInsets.bottom = rect.height - self.view.safeAreaInsets.bottom
 				
 			}, completion: nil)
 			
