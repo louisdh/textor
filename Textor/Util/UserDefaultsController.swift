@@ -9,6 +9,11 @@
 import Foundation
 import CoreGraphics
 
+enum Theme: String {
+	case light
+	case dark
+}
+
 class UserDefaultsController {
 	
 	static let shared = UserDefaultsController(userDefaults: .standard)
@@ -19,12 +24,25 @@ class UserDefaultsController {
 		self.userDefaults = userDefaults
 	}
 
-	var isDarkMode: Bool {
+	var theme: Theme {
 		get {
-			return userDefaults.object(forKey: "darkMode") as? Bool ?? false
+			guard let rawValue = userDefaults.object(forKey: "selectedTheme") as? String else {
+				return .light
+			}
+			
+			return Theme(rawValue: rawValue) ?? .light
 		}
 		set {
-			userDefaults.set(newValue, forKey: "darkMode")
+			userDefaults.set(newValue.rawValue, forKey: "selectedTheme")
+		}
+	}
+	
+	var isDarkMode: Bool {
+		get {
+			return theme == .dark
+		}
+		set {
+			theme = newValue ? .dark : .light
 		}
 	}
 	
