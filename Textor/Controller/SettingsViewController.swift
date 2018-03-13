@@ -120,9 +120,12 @@ class SettingsViewController: UITableViewController {
 				let appId = "1330406995"
 				url = "itms-apps://itunes.apple.com/us/app/textor/id\(appId)?action=write-review"
 			case 1:
+				// GitHub
+				url = "https://github.com/louisdh/textor"
+			case 2:
 				// Twitter
 				url = "https://twitter.com/LouisDhauwe"
-			case 2:
+			case 3:
 				// Contact Us
 				url = nil
 				
