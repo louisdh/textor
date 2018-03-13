@@ -21,7 +21,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.setTheme), name: .init("themeChanged") , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setTheme), name: .themeChanged, object: nil)
         // Update the style of the UIDocumentBrowserViewController
         setTheme()
 		

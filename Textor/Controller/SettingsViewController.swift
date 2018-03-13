@@ -66,7 +66,7 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func themeChanged(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
-        NotificationCenter.default.post(name: .init("themeChanged"), object: nil)
+        NotificationCenter.default.post(name: .themeChanged, object: nil)
     }
     
 	override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {

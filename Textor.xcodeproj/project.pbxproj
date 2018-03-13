@@ -27,6 +27,7 @@
 		BED3CABF20544197007968FF /* Textor_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CABE20544197007968FF /* Textor_UI_Tests.swift */; };
 		BED3CAC7205441A1007968FF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CAC6205441A0007968FF /* SnapshotHelper.swift */; };
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
+		BEDDAB152058745300AC9396 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB142058745300AC9396 /* Notification+Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		BED3CAC020544197007968FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BED3CAC6205441A0007968FF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		BEDDAB142058745300AC9396 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				BE31644D1FF95FF00071AE58 /* DocumentManager.swift */,
 				BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */,
 				BECE41032038DD45004889F0 /* UIColor+Named.swift */,
+				BEDDAB142058745300AC9396 /* Notification+Name.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
 				BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */,
+				BEDDAB152058745300AC9396 /* Notification+Name.swift in Sources */,
 				BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */,
 				BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */,
 			);
