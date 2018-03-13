@@ -47,7 +47,15 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 		
 		if UserDefaultsController.shared.isFastlane {
 			
-			var snapshotDocuments = ["The Crazy Ones.txt", "Planets.txt", "Circle.svg"]
+			var snapshotDocuments = ["Think different.txt", "Planets.txt", "Circle.svg"]
+			
+			if snapshotDocumentIndex == 2 {
+				UserDefaultsController.shared.isDarkMode = true
+			} else {
+				UserDefaultsController.shared.isDarkMode = false
+			}
+			
+			NotificationCenter.default.post(name: .themeChanged, object: nil)
 			
 			if self.view.bounds.width > 600 {
 				snapshotDocuments.append("Pharaoh.txt")

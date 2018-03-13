@@ -34,18 +34,22 @@ class Textor_UI_Tests: XCTestCase {
 		
 		let app = XCUIApplication()
 
-		
 		snapshot("screenshot1")
 		
-		app.navigationBars["The Crazy Ones.txt"].buttons["Done"].tap()
+		app.navigationBars["Think different.txt"].buttons["Done"].tap()
 
 		let textView = XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .textView).element
+
 		textView.tap()
 		
+		sleep(1)
 		snapshot("screenshot2")
 
 		app.navigationBars["Planets.txt"].buttons["Done"].tap()
 		
+		textView.tap()
+
+		sleep(1)
 		snapshot("screenshot3")
 		
 		app.navigationBars["Circle.svg"].buttons["Done"].tap()

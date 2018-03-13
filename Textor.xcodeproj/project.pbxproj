@@ -23,7 +23,7 @@
 		BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */; };
 		BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE41032038DD45004889F0 /* UIColor+Named.swift */; };
 		BED3CAB420543936007968FF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CAB320543936007968FF /* SettingsViewController.swift */; };
-		BED3CAB72054405A007968FF /* The Crazy Ones.txt in Resources */ = {isa = PBXBuildFile; fileRef = BED3CAB62054405A007968FF /* The Crazy Ones.txt */; };
+		BED3CAB72054405A007968FF /* Think different.txt in Resources */ = {isa = PBXBuildFile; fileRef = BED3CAB62054405A007968FF /* Think different.txt */; };
 		BED3CABF20544197007968FF /* Textor_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CABE20544197007968FF /* Textor_UI_Tests.swift */; };
 		BED3CAC7205441A1007968FF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED3CAC6205441A0007968FF /* SnapshotHelper.swift */; };
 		BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED6707C201BB1B200D04AD5 /* KeyboardObserver.swift */; };
@@ -64,7 +64,7 @@
 		BECE40F92038DB67004889F0 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		BECE41032038DD45004889F0 /* UIColor+Named.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Named.swift"; sourceTree = "<group>"; };
 		BED3CAB320543936007968FF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		BED3CAB62054405A007968FF /* The Crazy Ones.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "The Crazy Ones.txt"; sourceTree = "<group>"; };
+		BED3CAB62054405A007968FF /* Think different.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Think different.txt"; sourceTree = "<group>"; };
 		BED3CABC20544197007968FF /* Textor UI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Textor UI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED3CABE20544197007968FF /* Textor_UI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textor_UI_Tests.swift; sourceTree = "<group>"; };
 		BED3CAC020544197007968FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		BED3CAB52054403D007968FF /* Screenshot files */ = {
 			isa = PBXGroup;
 			children = (
-				BED3CAB62054405A007968FF /* The Crazy Ones.txt */,
+				BED3CAB62054405A007968FF /* Think different.txt */,
 				BEC104DE2054481F009F56E7 /* Planets.txt */,
 				BEC104E220546728009F56E7 /* Circle.svg */,
 				BEC104E420546730009F56E7 /* Pharaoh.txt */,
@@ -300,7 +300,7 @@
 				BE000C341FF9451F00D06B91 /* LaunchScreen.storyboard in Resources */,
 				BEC104DF2054481F009F56E7 /* Planets.txt in Resources */,
 				BEC104E320546728009F56E7 /* Circle.svg in Resources */,
-				BED3CAB72054405A007968FF /* The Crazy Ones.txt in Resources */,
+				BED3CAB72054405A007968FF /* Think different.txt in Resources */,
 				BE000C311FF9451F00D06B91 /* Assets.xcassets in Resources */,
 				BEC104E520546730009F56E7 /* Pharaoh.txt in Resources */,
 				BE000C2F1FF9451F00D06B91 /* Main.storyboard in Resources */,
