@@ -73,7 +73,7 @@ extension UIViewController {
 	
 	func showErrorAlert(_ error: Error? = nil, res: HTTPURLResponse? = nil, retryCallback: (() -> Void)? = nil, dismissCallback: (() -> Void)? = nil) {
 		
-		var errorTitle = "Error"
+		let errorTitle = "Error"
 		var errorMessage = ""
 		
 		if errorMessage == "" {

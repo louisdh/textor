@@ -21,8 +21,9 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setTheme), name: .init("themeChanged") , object: nil)
         // Update the style of the UIDocumentBrowserViewController
-//		browserUserInterfaceStyle = .light
+        setTheme()
 		
 //		UIApplication.shared.keyWindow?.tintColor = .purple
 		view.tintColor = .appTintColor
@@ -34,6 +35,15 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 		self.additionalLeadingNavigationBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .done, target: self, action: #selector(showSettings))]
 	}
 	
+    @objc func setTheme(){
+        let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
+        if darkMode {
+            self.browserUserInterfaceStyle = .dark
+        } else {
+            self.browserUserInterfaceStyle = .white
+        }
+    }
+    
 	var snapshotDocumentIndex = 0
 	
 	override func viewDidAppear(_ animated: Bool) {
