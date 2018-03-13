@@ -26,11 +26,10 @@ class DocumentViewController: UIViewController {
 		self.navigationController?.view.tintColor = .appTintColor
 		view.tintColor = .appTintColor
         
-        let fontSize = CGFloat(UserDefaults.standard.float(forKey: "fontSize"))
+        let fontSize = UserDefaultsController.shared.fontSize
         textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
         
-        let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
-        if darkMode {
+        if UserDefaultsController.shared.isDarkMode {
             textView.textColor = .white
             textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
 			textView.keyboardAppearance = .dark

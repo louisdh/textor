@@ -43,10 +43,10 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-		fontSizeStepper.value = UserDefaults.standard.double(forKey: "fontSize")
+		fontSizeStepper.value = Double(UserDefaultsController.shared.fontSize)
         fontSizeLabel.text = "\(Int(fontSizeStepper.value))"
         
-        darkThemeSwitch.isOn = UserDefaults.standard.bool(forKey: "darkMode")
+        darkThemeSwitch.isOn = UserDefaultsController.shared.isDarkMode
 	}
 	
 	override func viewWillLayoutSubviews() {
@@ -60,12 +60,12 @@ class SettingsViewController: UITableViewController {
 	}
     
     @IBAction func fontSizeChanged(_ sender: UIStepper) {
-        UserDefaults.standard.set(sender.value, forKey: "fontSize")
+		UserDefaultsController.shared.fontSize = CGFloat(sender.value)
         fontSizeLabel.text = "\(Int(sender.value))"
     }
     
     @IBAction func themeChanged(_ sender: UISwitch) {
-        UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
+		UserDefaultsController.shared.isDarkMode = sender.isOn
         NotificationCenter.default.post(name: .themeChanged, object: nil)
     }
     

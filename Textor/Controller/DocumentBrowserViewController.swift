@@ -31,12 +31,13 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 	}
 	
     @objc func setTheme() {
-        let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
-        if darkMode {
+
+		if UserDefaultsController.shared.isDarkMode {
             self.browserUserInterfaceStyle = .dark
         } else {
             self.browserUserInterfaceStyle = .white
         }
+		
     }
     
 	var snapshotDocumentIndex = 0
@@ -44,7 +45,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") == true {
+		if UserDefaultsController.shared.isFastlane {
 			
 			var snapshotDocuments = ["The Crazy Ones.txt", "Planets.txt", "Circle.svg"]
 			
