@@ -33,9 +33,13 @@ class DocumentViewController: UIViewController {
         if darkMode {
             textView.textColor = .white
             textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
+			textView.keyboardAppearance = .dark
+			textView.indicatorStyle = .white
+			navigationController?.navigationBar.barStyle = .blackTranslucent
         } else {
             textView.textColor = .black
             textView.backgroundColor = .white
+			textView.keyboardAppearance = .default
         }
         
 		keyboardObserver.observe { [weak self] (state) in
@@ -122,4 +126,5 @@ class DocumentViewController: UIViewController {
             self.document?.close(completionHandler: nil)
         }
     }
+	
 }
