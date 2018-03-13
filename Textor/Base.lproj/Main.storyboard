@@ -29,7 +29,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="654"/>
+            <point key="canvasLocation" x="411" y="699"/>
         </scene>
         <!--Document View Controller-->
         <scene sceneID="dkP-xk-x6W">
@@ -75,25 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl9-ES-qQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896.8" y="653.52323838080963"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Abd-4t-m48">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wq3-qQ-s07" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SYd-TT-Xth">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="M2k-L8-Olo" kind="relationship" relationship="rootViewController" id="JxQ-1v-YWt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vUT-hc-h5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030.4000000000001" y="653.97301349325346"/>
+            <point key="canvasLocation" x="1030" y="699"/>
         </scene>
         <!--About Textor-->
         <scene sceneID="anp-Dl-UAA">
