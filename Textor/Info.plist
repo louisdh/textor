@@ -37,6 +37,8 @@
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
 	<string>6</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSUbiquitousContainers</key>
