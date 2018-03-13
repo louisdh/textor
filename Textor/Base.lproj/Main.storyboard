@@ -236,9 +236,9 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-bG-JjJ">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6jF-bG-JjJ">
                                                             <rect key="frame" x="294" y="0.0" width="51" height="22"/>
-                                                            <color key="tintColor" name="Tint Color"/>
+                                                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             <color key="onTintColor" name="Tint Color"/>
                                                             <connections>
                                                                 <action selector="themeChanged:" destination="3tO-c6-rtm" eventType="valueChanged" id="IxW-34-mWK"/>
