@@ -27,7 +27,7 @@ class DocumentViewController: UIViewController {
 		view.tintColor = .appTintColor
         
         let fontSize = CGFloat(UserDefaults.standard.float(forKey: "fontSize"))
-        textView.font = UIFont.systemFont(ofSize: fontSize)
+        textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
         
         let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
         if darkMode {
