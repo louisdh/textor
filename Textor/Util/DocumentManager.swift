@@ -97,17 +97,12 @@ class DocumentManager {
 
 }
 
-enum FileListSortOption: Int {
-	case name = 0
-	case lastModificationDate = 1
-}
-
 extension DocumentManager {
 
 	/// - Parameter fileName: Without extension
 	func isFileNameAvailable(_ fileName: String) -> Bool {
 
-		let files = fileList(sortedBy: .name).map { $0.fileName().lowercased() }
+		let files = fileList().map { $0.fileName().lowercased() }
 
 		return !files.contains(fileName.lowercased())
 	}
@@ -115,7 +110,7 @@ extension DocumentManager {
 	/// - Parameter proposedName: Without extension
 	func availableFileName(forProposedName proposedName: String) -> String {
 
-		let files = fileList(sortedBy: .name).map { $0.fileName().lowercased() }
+		let files = fileList().map { $0.fileName().lowercased() }
 
 		var availableFileName = proposedName
 
@@ -131,7 +126,7 @@ extension DocumentManager {
 	}
 
 	/// File list, including file extensions.
-	func fileList(sortedBy sortOption: FileListSortOption) -> [String] {
+	func fileList() -> [String] {
 
 		let documentsURL = activeDocumentsFolderURL
 
@@ -139,45 +134,7 @@ extension DocumentManager {
 			return []
 		}
 
-		let sortedURLs: [URL]
-
-		switch sortOption {
-		case .name:
-
-			sortedURLs = contents.sorted { (url1, url2) -> Bool in
-				return url1.lastPathComponent < url2.lastPathComponent
-			}
-
-		case .lastModificationDate:
-
-			var dates = [URL: Date]()
-
-			for url in contents {
-
-				guard let date1 = (try? fileManager.attributesOfItem(atPath: url.path)[.modificationDate]) as? Date else {
-					continue
-				}
-
-				dates[url] = date1
-			}
-
-			sortedURLs = contents.sorted { (url1, url2) -> Bool in
-
-				guard let date1 = dates[url1] else {
-					return true
-				}
-
-				guard let date2 = dates[url2] else {
-					return true
-				}
-
-				return date1 > date2
-
-			}
-
-		}
-
-		let files = sortedURLs.map({ $0.lastPathComponent }).filter({ $0.hasSuffix(".svg") })
+		let files = contents.map({ $0.lastPathComponent }).filter({ $0.hasSuffix(".\(fileExtension)") })
 
 		return files
 	}
