@@ -17,6 +17,7 @@ class SettingsViewController: UITableViewController {
 
     override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		fontSizeStepper.value = Double(UserDefaultsController.shared.fontSize)
         fontSizeLabel.text = "\(Int(fontSizeStepper.value))"
 
@@ -29,6 +30,7 @@ class SettingsViewController: UITableViewController {
 	}
 
 	@IBAction func close(_ sender: UIBarButtonItem) {
+		
 		self.dismiss(animated: true, completion: nil)
 
 	}
