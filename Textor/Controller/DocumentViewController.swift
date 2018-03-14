@@ -23,6 +23,8 @@ class DocumentViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		textView.delegate = self
+		
 		self.navigationController?.view.tintColor = .appTintColor
 		self.view.tintColor = .appTintColor
 		
@@ -127,6 +129,8 @@ class DocumentViewController: UIViewController {
 			return
 		}
 
+		textView.resignFirstResponder()
+		
 		var activityItems: [Any] = [url]
 
 		if UIPrintInteractionController.isPrintingAvailable {
@@ -158,6 +162,22 @@ class DocumentViewController: UIViewController {
         }
     }
 
+}
+
+extension DocumentViewController: UITextViewDelegate {
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		
+		let currentText = self.document?.text ?? ""
+		
+		self.document?.text = self.textView.text
+		
+		if currentText != self.textView.text {
+			self.document?.updateChangeCount(.done)
+		}
+
+	}
+	
 }
 
 extension DocumentViewController: StoryboardIdentifiable {
