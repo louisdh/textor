@@ -112,16 +112,16 @@ class DocumentViewController: UIViewController {
 			return
 		}
         
-        var activityItemsArray:[Any] = [url]
+        var activityItems: [Any] = [url]
         
-        if UIPrintInteractionController.isPrintingAvailable == true {
+        if UIPrintInteractionController.isPrintingAvailable {
             let viewFormatter = self.textView.viewPrintFormatter()
             let printRenderer = UIPrintPageRenderer()
             printRenderer.addPrintFormatter(viewFormatter, startingAtPageAt: 0)
-            activityItemsArray.append(printRenderer)
+            activityItems.append(printRenderer)
         }
         
-		let activityVC = UIActivityViewController(activityItems: activityItemsArray, applicationActivities: nil)
+		let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
 		
 		activityVC.popoverPresentationController?.barButtonItem = sender
 		
