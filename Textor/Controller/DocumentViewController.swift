@@ -20,76 +20,93 @@ class DocumentViewController: UIViewController {
 
 	private let keyboardObserver = KeyboardObserver()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		self.navigationController?.view.tintColor = .appTintColor
-		view.tintColor = .appTintColor
-
-        let fontSize = UserDefaultsController.shared.fontSize
-        textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
-
-        if UserDefaultsController.shared.isDarkMode {
-            textView.textColor = .white
-            textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
-			textView.keyboardAppearance = .dark
-			textView.indicatorStyle = .white
-			navigationController?.navigationBar.barStyle = .blackTranslucent
-        } else {
-            textView.textColor = .black
-            textView.backgroundColor = .white
-			textView.keyboardAppearance = .default
-        }
+		self.view.tintColor = .appTintColor
+		
+		updateTheme()
 
 		textView.alwaysBounceVertical = true
-
-		self.view.backgroundColor = textView.backgroundColor
-
+		
 		keyboardObserver.observe { [weak self] (state) in
-
+			
 			guard let textView = self?.textView else {
 				return
 			}
-
+			
 			guard let `self` = self else {
 				return
 			}
-
+			
 			let rect = textView.convert(state.keyboardFrameEnd, from: nil).intersection(textView.bounds)
-
+			
 			UIView.animate(withDuration: state.duration, delay: 0.0, options: state.options, animations: {
-
+				
 				textView.contentInset.bottom = rect.height - self.view.safeAreaInsets.bottom
 				textView.scrollIndicatorInsets.bottom = rect.height - self.view.safeAreaInsets.bottom
-
+				
 			}, completion: nil)
-
+			
 		}
-
+		
 		textView.text = ""
-
+		
 		document?.open(completionHandler: { [weak self] (success) in
-
+			
 			guard let `self` = self else {
 				return
 			}
-
-            if success {
-
+			
+			if success {
+				
 				self.textView.text = self.document?.text
-
+				
 				// Calculate layout for full document, so scrolling is smooth.
 				self.textView.layoutManager.ensureLayout(forCharacterRange: NSRange(location: 0, length: self.textView.text.count))
-
-            } else {
-
+				
+				if self.textView.text.isEmpty {
+					self.textView.becomeFirstResponder()
+				}
+				
+			} else {
+				
 				self.showAlert("Error", message: "Document could not be opened.", dismissCallback: {
 					self.dismiss(animated: true, completion: nil)
 				})
+				
+			}
+			
+		})
+		
+	}
+	
+	private func updateTheme() {
+		
+		let fontSize = UserDefaultsController.shared.fontSize
+		textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
+		
+		if UserDefaultsController.shared.isDarkMode {
+			textView.textColor = .white
+			textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
+			textView.keyboardAppearance = .dark
+			textView.indicatorStyle = .white
+			navigationController?.navigationBar.barStyle = .blackTranslucent
+		} else {
+			textView.textColor = .black
+			textView.backgroundColor = .white
+			textView.keyboardAppearance = .default
+		}
+		
+		self.view.backgroundColor = textView.backgroundColor
+		
+	}
+	
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-            }
 
-        })
     }
 
 	override func viewDidDisappear(_ animated: Bool) {
