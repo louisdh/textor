@@ -143,13 +143,12 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
 
     func presentDocument(at documentURL: URL) {
 
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let documentViewController = storyBoard.instantiateViewController(withIdentifier: "DocumentViewController") as! DocumentViewController
+		let document = Document(fileURL: documentURL)
+		let documentViewController = UIStoryboard.main.documentViewController(document: document)
 
 		transitionController = self.transitionController(forDocumentURL: documentURL)
 		transitionController?.targetView = documentViewController.textView
 
-        documentViewController.document = Document(fileURL: documentURL)
 		documentViewController.title = documentURL.lastPathComponent
 
 		let navCon = UINavigationController(rootViewController: documentViewController)

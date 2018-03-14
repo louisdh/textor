@@ -159,3 +159,11 @@ class DocumentViewController: UIViewController {
     }
 
 }
+
+extension DocumentViewController: StoryboardIdentifiable {
+	
+	static var storyboardIdentifier: String {
+		return "DocumentViewController"
+	}
+	
+}
