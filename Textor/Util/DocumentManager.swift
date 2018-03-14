@@ -24,9 +24,9 @@ extension String {
 
 class DocumentManager {
 
-	static let shared = DocumentManager()
+	static let shared = DocumentManager(fileManager: .default)
 
-	let fileManager = FileManager.default
+	let fileManager: FileManager
 
 	// All created documents are .txt
 	// (might change in future)
@@ -34,8 +34,10 @@ class DocumentManager {
 		return "txt"
 	}
 
-	init() {
+	private init(fileManager: FileManager) {
 
+		self.fileManager = fileManager
+		
 		let documentsFolder = activeDocumentsFolderURL
 
 		if !fileManager.fileExists(atPath: documentsFolder.path) {
@@ -99,14 +101,6 @@ class DocumentManager {
 
 extension DocumentManager {
 
-	/// - Parameter fileName: Without extension
-	func isFileNameAvailable(_ fileName: String) -> Bool {
-
-		let files = fileList().map { $0.fileName().lowercased() }
-
-		return !files.contains(fileName.lowercased())
-	}
-
 	/// - Parameter proposedName: Without extension
 	func availableFileName(forProposedName proposedName: String) -> String {
 
@@ -126,7 +120,7 @@ extension DocumentManager {
 	}
 
 	/// File list, including file extensions.
-	func fileList() -> [String] {
+	private func fileList() -> [String] {
 
 		let documentsURL = activeDocumentsFolderURL
 
