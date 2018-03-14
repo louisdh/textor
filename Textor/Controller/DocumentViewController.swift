@@ -41,6 +41,8 @@ class DocumentViewController: UIViewController {
 			textView.keyboardAppearance = .default
         }
 		
+		textView.alwaysBounceVertical = true
+		
 		self.view.backgroundColor = textView.backgroundColor
         
 		keyboardObserver.observe { [weak self] (state) in
