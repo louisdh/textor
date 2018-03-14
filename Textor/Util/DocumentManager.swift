@@ -97,7 +97,7 @@ class DocumentManager {
 
 }
 
-@objc enum FileListSortOption: Int {
+enum FileListSortOption: Int {
 	case name = 0
 	case lastModificationDate = 1
 }
@@ -105,7 +105,7 @@ class DocumentManager {
 extension DocumentManager {
 
 	/// - Parameter fileName: Without extension
-	@objc func isFileNameAvailable(_ fileName: String) -> Bool {
+	func isFileNameAvailable(_ fileName: String) -> Bool {
 
 		let files = fileList(sortedBy: .name).map { $0.fileName().lowercased() }
 
@@ -113,7 +113,7 @@ extension DocumentManager {
 	}
 
 	/// - Parameter proposedName: Without extension
-	@objc func availableFileName(forProposedName proposedName: String) -> String {
+	func availableFileName(forProposedName proposedName: String) -> String {
 
 		let files = fileList(sortedBy: .name).map { $0.fileName().lowercased() }
 
@@ -131,7 +131,7 @@ extension DocumentManager {
 	}
 
 	/// File list, including file extensions.
-	@objc func fileList(sortedBy sortOption: FileListSortOption) -> [String] {
+	func fileList(sortedBy sortOption: FileListSortOption) -> [String] {
 
 		let documentsURL = activeDocumentsFolderURL
 
@@ -180,37 +180,6 @@ extension DocumentManager {
 		let files = sortedURLs.map({ $0.lastPathComponent }).filter({ $0.hasSuffix(".svg") })
 
 		return files
-	}
-
-}
-
-extension DocumentManager {
-
-	func lastEditedDate(for fileName: String) -> Date? {
-		return fileAttribute(.modificationDate, for: fileName)
-	}
-
-	func fileCreationDate(for fileName: String) -> Date? {
-		return fileAttribute(.creationDate, for: fileName)
-	}
-
-	func fileSize(for fileName: String) -> NSNumber? {
-		return fileAttribute(.size, for: fileName)
-	}
-
-	private func fileAttribute<T>(_ attributeKey: FileAttributeKey, for fileName: String) -> T? {
-
-		guard let url = url(for: fileName) else {
-			return nil
-		}
-
-		guard let attributes = try? fileManager.attributesOfItem(atPath: url.path) else {
-			return nil
-		}
-
-		let attribute = attributes[attributeKey] as? T
-
-		return attribute
 	}
 
 }
