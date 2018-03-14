@@ -15,11 +15,11 @@ enum Theme: String {
 }
 
 class UserDefaultsController {
-	
+
 	static let shared = UserDefaultsController(userDefaults: .standard)
-	
+
 	private var userDefaults: UserDefaults
-	
+
 	private init(userDefaults: UserDefaults) {
 		self.userDefaults = userDefaults
 	}
@@ -29,14 +29,14 @@ class UserDefaultsController {
 			guard let rawValue = userDefaults.object(forKey: "selectedTheme") as? String else {
 				return .light
 			}
-			
+
 			return Theme(rawValue: rawValue) ?? .light
 		}
 		set {
 			userDefaults.set(newValue.rawValue, forKey: "selectedTheme")
 		}
 	}
-	
+
 	var isDarkMode: Bool {
 		get {
 			return theme == .dark
@@ -45,7 +45,7 @@ class UserDefaultsController {
 			theme = newValue ? .dark : .light
 		}
 	}
-	
+
 	var fontSize: CGFloat {
 		get {
 			return userDefaults.object(forKey: "fontSize") as? CGFloat ?? 17.0
@@ -54,9 +54,9 @@ class UserDefaultsController {
 			userDefaults.set(newValue, forKey: "fontSize")
 		}
 	}
-	
+
 	var isFastlane: Bool {
 		return userDefaults.bool(forKey: "FASTLANE_SNAPSHOT") == true
 	}
-	
+
 }

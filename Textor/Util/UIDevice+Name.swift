@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIDevice {
-	
+
 	public var modelName: String {
 		var systemInfo = utsname()
 		uname(&systemInfo)

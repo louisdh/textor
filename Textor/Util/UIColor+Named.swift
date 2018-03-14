@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 extension UIColor {
-	
+
 	static var appTintColor: UIColor {
 		return UIColor(named: "Tint Color")!
 	}
-	
+
 }
