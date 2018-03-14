@@ -9,11 +9,6 @@
 import Foundation
 import CoreGraphics
 
-enum Theme: String {
-	case light
-	case dark
-}
-
 class UserDefaultsController {
 
 	static let shared = UserDefaultsController(userDefaults: .standard)
