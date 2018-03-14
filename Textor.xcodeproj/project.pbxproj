@@ -115,6 +115,7 @@
 				FF48B97708CE1B3F9B5381B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		BE000C231FF9451F00D06B91 /* Products */ = {
 			isa = PBXGroup;
