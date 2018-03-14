@@ -137,7 +137,10 @@ extension DocumentBrowserViewController: UIDocumentBrowserViewControllerDelegate
 	}
 	
 	func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
-		guard let sourceURL = documentURLs.first else { return }
+		
+		guard let sourceURL = documentURLs.first else {
+			return
+		}
 		
 		// Present the Document View Controller for the first document that was picked.
 		// If you support picking multiple items, make sure you handle them all.
@@ -145,6 +148,7 @@ extension DocumentBrowserViewController: UIDocumentBrowserViewControllerDelegate
 	}
 	
 	func documentBrowser(_ controller: UIDocumentBrowserViewController, didImportDocumentAt sourceURL: URL, toDestinationURL destinationURL: URL) {
+		
 		// Present the Document View Controller for the new newly created document
 		presentDocument(at: destinationURL)
 	}
