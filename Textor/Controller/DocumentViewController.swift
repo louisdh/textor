@@ -110,14 +110,14 @@ class DocumentViewController: UIViewController {
 			return
 		}
 
-        var activityItems: [Any] = [url]
+		var activityItems: [Any] = [url]
 
-        if UIPrintInteractionController.isPrintingAvailable {
-            let viewFormatter = self.textView.viewPrintFormatter()
-            let printRenderer = UIPrintPageRenderer()
-            printRenderer.addPrintFormatter(viewFormatter, startingAtPageAt: 0)
-            activityItems.append(printRenderer)
-        }
+		if UIPrintInteractionController.isPrintingAvailable {
+			let viewFormatter = self.textView.viewPrintFormatter()
+			let printRenderer = UIPrintPageRenderer()
+			printRenderer.addPrintFormatter(viewFormatter, startingAtPageAt: 0)
+			activityItems.append(printRenderer)
+		}
 
 		let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
 

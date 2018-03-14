@@ -19,16 +19,16 @@ class Document: UIDocument {
 
 	var encodingUsed: String.Encoding?
 
-    override func contents(forType typeName: String) throws -> Any {
+	override func contents(forType typeName: String) throws -> Any {
 
 		guard let data = text?.data(using: .utf8) else {
 			throw DocumentError.saveError
 		}
 
 		return data
-    }
+	}
 
-    override func load(fromContents contents: Any, ofType typeName: String?) throws {
+	override func load(fromContents contents: Any, ofType typeName: String?) throws {
 
 		guard let data = contents as? Data else {
 			throw DocumentError.loadError

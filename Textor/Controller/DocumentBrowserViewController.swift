@@ -10,7 +10,7 @@ import UIKit
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
 
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
 
 		// Makes sure everything is initialized
