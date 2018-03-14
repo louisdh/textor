@@ -22,35 +22,19 @@ extension String {
 
 }
 
-@objc
-class DocumentManager: NSObject {
+class DocumentManager {
 
-	@objc static let shared = DocumentManager()
+	static let shared = DocumentManager()
 
 	let fileManager = FileManager.default
 
-	// All documents are .txt
+	// All created documents are .txt
 	// (might change in future)
 	private var fileExtension: String {
 		return "txt"
 	}
 
-	private let appGroup = "group.pixure"
-
-	var appGroupURL: URL {
-		guard let groupContainerURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-			fatalError("Expected app group path to exist")
-		}
-
-		return groupContainerURL
-	}
-
-	var appGroupPath: String {
-		return appGroupURL.relativePath
-	}
-
-	override init() {
-		super.init()
+	init() {
 
 		let documentsFolder = activeDocumentsFolderURL
 
@@ -91,18 +75,18 @@ class DocumentManager: NSObject {
 		}
 	}
 
-	@objc var iCloudAvailable: Bool {
+	var iCloudAvailable: Bool {
 		return fileManager.ubiquityIdentityToken != nil
 	}
 
-	@objc func cacheUrl(for fileName: String) -> URL? {
+	func cacheUrl(for fileName: String) -> URL? {
 
 		let docURL = cachesURL.appendingPathComponent(fileName).appendingPathExtension(fileExtension)
 
 		return docURL
 	}
 
-	@objc func url(for fileName: String) -> URL? {
+	func url(for fileName: String) -> URL? {
 
 		let baseURL = activeDocumentsFolderURL
 
