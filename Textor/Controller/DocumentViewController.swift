@@ -91,7 +91,7 @@ class DocumentViewController: UIViewController {
 		
 		if UserDefaultsController.shared.isDarkMode {
 			textView.textColor = .white
-			textView.backgroundColor = UIColor(white: 0.1, alpha: 1)
+			textView.backgroundColor = .darkBackgroundColor
 			textView.keyboardAppearance = .dark
 			textView.indicatorStyle = .white
 			navigationController?.navigationBar.barStyle = .blackTranslucent

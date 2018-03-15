@@ -16,6 +16,7 @@
 		BE000C311FF9451F00D06B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE000C301FF9451F00D06B91 /* Assets.xcassets */; };
 		BE000C341FF9451F00D06B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE000C321FF9451F00D06B91 /* LaunchScreen.storyboard */; };
 		BE31644E1FF95FF00071AE58 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31644D1FF95FF00071AE58 /* DocumentManager.swift */; };
+		BE3BE749205B046E0044356A /* UITableViewCell+Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3BE748205B046E0044356A /* UITableViewCell+Labels.swift */; };
 		BE5CE1132059AA2500158BE9 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5CE1122059AA2500158BE9 /* StoryboardFactory.swift */; };
 		BE5CE1152059AB5E00158BE9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5CE1142059AB5E00158BE9 /* Theme.swift */; };
 		BEC104DF2054481F009F56E7 /* Planets.txt in Resources */ = {isa = PBXBuildFile; fileRef = BEC104DE2054481F009F56E7 /* Planets.txt */; };
@@ -59,6 +60,7 @@
 		BE000C351FF9451F00D06B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE000C3B1FF94F9B00D06B91 /* Textor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Textor.entitlements; sourceTree = "<group>"; };
 		BE31644D1FF95FF00071AE58 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
+		BE3BE748205B046E0044356A /* UITableViewCell+Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Labels.swift"; sourceTree = "<group>"; };
 		BE5CE1122059AA2500158BE9 /* StoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
 		BE5CE1142059AB5E00158BE9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BEC104DE2054481F009F56E7 /* Planets.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Planets.txt; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				BEDDAB182058811F00AC9396 /* Bundle+Info.swift */,
 				BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */,
 				BE5CE1122059AA2500158BE9 /* StoryboardFactory.swift */,
+				BE3BE748205B046E0044356A /* UITableViewCell+Labels.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				BEDDAB1B2058813800AC9396 /* UIDevice+Name.swift in Sources */,
 				BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */,
 				BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */,
+				BE3BE749205B046E0044356A /* UITableViewCell+Labels.swift in Sources */,
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
 				BE5CE1132059AA2500158BE9 /* StoryboardFactory.swift in Sources */,
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
