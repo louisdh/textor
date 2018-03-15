@@ -134,9 +134,10 @@ class DocumentViewController: UIViewController {
 		var activityItems: [Any] = [url]
 
 		if UIPrintInteractionController.isPrintingAvailable {
-			let viewFormatter = self.textView.viewPrintFormatter()
+			
+			let printFormatter = UISimpleTextPrintFormatter(text: self.textView.text ?? "")
 			let printRenderer = UIPrintPageRenderer()
-			printRenderer.addPrintFormatter(viewFormatter, startingAtPageAt: 0)
+			printRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
 			activityItems.append(printRenderer)
 		}
 
