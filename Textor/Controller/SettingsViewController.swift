@@ -30,7 +30,10 @@ class SettingsViewController: UITableViewController {
 
 	override func viewWillLayoutSubviews() {
 		super.viewWillLayoutSubviews()
-
+		
+		let indexPathForFontRow = IndexPath(item: 5, section: 0)
+		let fontCell = tableView.cellForRow(at: indexPathForFontRow)
+		fontCell?.detailTextLabel?.text = UserDefaultsController.shared.font
 	}
 
 	@IBAction func close(_ sender: UIBarButtonItem) {
@@ -182,6 +185,13 @@ class SettingsViewController: UITableViewController {
 					self.showSendMailErrorAlert()
 
 				}
+			case 5:
+				// Font picker
+				url = nil
+				
+				let fontVC = self.storyboard!.instantiateViewController(withIdentifier: "FontViewController")
+				
+				self.show(fontVC, sender: nil)
 			default: return
 			}
 

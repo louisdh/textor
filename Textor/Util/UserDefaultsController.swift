@@ -49,6 +49,15 @@ class UserDefaultsController {
 			userDefaults.set(newValue, forKey: "fontSize")
 		}
 	}
+	
+	var font: String {
+		get {
+			return userDefaults.string(forKey: "font") ?? "Menlo-Regular"
+		}
+		set {
+			userDefaults.set(newValue, forKey: "font")
+		}
+	}
 
 	var isFastlane: Bool {
 		return userDefaults.bool(forKey: "FASTLANE_SNAPSHOT") == true
