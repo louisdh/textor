@@ -10,6 +10,13 @@ import UIKit
 
 class FontPickerViewController: UITableViewController {
 
+	let searchController: UISearchController = {
+		let searchController = UISearchController(searchResultsController: nil)
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder = "Search Fonts"
+		return searchController
+	}()
+	
 	let fonts: [String] = {
 		var allFonts = [String]()
 		let fontFamilys = UIFont.familyNames
@@ -19,12 +26,17 @@ class FontPickerViewController: UITableViewController {
 		
 		return allFonts.sorted()
 	}()
+	var filteredFonts = [String]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		updateTheme()
 		title = "Fonts"
+		
+		self.searchController.searchResultsUpdater = self
+		self.navigationItem.searchController = searchController
+		self.definesPresentationContext = true
     }
 	
 	func updateTheme() {
@@ -33,12 +45,12 @@ class FontPickerViewController: UITableViewController {
 		
 		switch theme {
 		case .light:
-			tableView.backgroundColor = .groupTableViewBackground
+			tableView.backgroundColor = .white
 			navigationController?.navigationBar.barStyle = .default
 			tableView.separatorColor = .gray
 			
 		case .dark:
-			tableView.backgroundColor = .darkBackgroundColor
+			tableView.backgroundColor = UIColor(white: 0.07, alpha: 1)
 			navigationController?.navigationBar.barStyle = .black
 			tableView.separatorColor = UIColor(white: 0.2, alpha: 1)
 			
@@ -71,6 +83,19 @@ class FontPickerViewController: UITableViewController {
 		
 	}
 	
+	func searchFonts(searchText: String) {
+		filteredFonts = fonts.filter({ (font: String) -> Bool in
+			return font.contains(searchText)
+		})
+		
+		tableView.reloadData()
+	}
+	
+	func isSearching() -> Bool {
+		let isSearchBarEmpty = searchController.searchBar.text?.isEmpty ?? true
+		return searchController.isActive && !isSearchBarEmpty
+	}
+	
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		let currentFont = UserDefaultsController.shared.font
@@ -86,6 +111,10 @@ class FontPickerViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if isSearching() {
+			return filteredFonts.count
+		}
+		
 		return fonts.count
 	}
 	
@@ -93,7 +122,13 @@ class FontPickerViewController: UITableViewController {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		
-		let fontName = fonts[indexPath.row]
+		var fontName: String
+		if isSearching() {
+			fontName = filteredFonts[indexPath.row]
+		} else {
+			fontName = fonts[indexPath.row]
+		}
+		
 		cell.textLabel?.text = fontName
 		cell.textLabel?.font = UIFont(name: fontName, size: 16)
 		
@@ -108,5 +143,14 @@ class FontPickerViewController: UITableViewController {
 		}
 		
 		self.navigationController?.popViewController(animated: true)
+	}
+}
+
+extension FontPickerViewController: UISearchResultsUpdating {
+	
+	func updateSearchResults(for searchController: UISearchController) {
+		if let searchText = searchController.searchBar.text {
+			searchFonts(searchText: searchText)
+		}
 	}
 }
