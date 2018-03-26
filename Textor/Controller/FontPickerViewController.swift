@@ -2,7 +2,7 @@
 //  FontPickerViewController.swift
 //  Textor
 //
-//  Created by Simon Andersson on 2018-03-25.
+//  Created by Simon Andersson on 25/03/2018.
 //  Copyright © 2018 Silver Fox. All rights reserved.
 //
 

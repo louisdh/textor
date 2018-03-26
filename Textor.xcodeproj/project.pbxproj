@@ -34,6 +34,7 @@
 		BEDDAB1720587C1700AC9396 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB1620587C1700AC9396 /* UserDefaultsController.swift */; };
 		BEDDAB192058811F00AC9396 /* Bundle+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB182058811F00AC9396 /* Bundle+Info.swift */; };
 		BEDDAB1B2058813800AC9396 /* UIDevice+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */; };
+		BEFE545020697B1000FEFE93 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFE544F20697B1000FEFE93 /* FontPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		BEDDAB1620587C1700AC9396 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		BEDDAB182058811F00AC9396 /* Bundle+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Info.swift"; sourceTree = "<group>"; };
 		BEDDAB1A2058813800AC9396 /* UIDevice+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Name.swift"; sourceTree = "<group>"; };
+		BEFE544F20697B1000FEFE93 /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
 		C306DDCD34CEE33C89B349CB /* Pods-Textor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 			children = (
 				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
 				BE000C291FF9451F00D06B91 /* DocumentViewController.swift */,
+				BEFE544F20697B1000FEFE93 /* FontPickerViewController.swift */,
 				BED3CAB320543936007968FF /* SettingsViewController.swift */,
 			);
 			path = Controller;
@@ -389,6 +392,7 @@
 				BEDDAB1720587C1700AC9396 /* UserDefaultsController.swift in Sources */,
 				BE000C2A1FF9451F00D06B91 /* DocumentViewController.swift in Sources */,
 				BEDDAB1B2058813800AC9396 /* UIDevice+Name.swift in Sources */,
+				BEFE545020697B1000FEFE93 /* FontPickerViewController.swift in Sources */,
 				BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */,
 				BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */,
 				BE3BE749205B046E0044356A /* UITableViewCell+Labels.swift in Sources */,
