@@ -84,9 +84,8 @@ class FontPickerViewController: UITableViewController {
 	}
 	
 	func searchFonts(searchText: String) {
-		filteredFonts = fonts.filter({ (font: String) -> Bool in
-			return font.contains(searchText)
-		})
+		
+		filteredFonts = fonts.filter({ $0.lowercased().contains(searchText.lowercased()) })
 		
 		tableView.reloadData()
 	}
