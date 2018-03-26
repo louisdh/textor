@@ -64,7 +64,7 @@ class FontPickerViewController: UITableViewController {
 		
 		switch theme {
 		case .light:
-			cell.backgroundColor = .white
+			cell.backgroundColor = .clear
 			
 			for label in cell.subviewLabels() {
 				label.textColor = .black
@@ -72,7 +72,7 @@ class FontPickerViewController: UITableViewController {
 			}
 			
 		case .dark:
-			cell.backgroundColor = UIColor(white: 0.07, alpha: 1)
+			cell.backgroundColor = .clear
 			
 			for label in cell.subviewLabels() {
 				label.textColor = .white
