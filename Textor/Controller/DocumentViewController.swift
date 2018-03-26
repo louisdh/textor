@@ -86,8 +86,9 @@ class DocumentViewController: UIViewController {
 	
 	private func updateTheme() {
 		
+		let font = UserDefaultsController.shared.font
 		let fontSize = UserDefaultsController.shared.fontSize
-		textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
+		textView.font = UIFont(name: font, size: fontSize)
 		
 		if UserDefaultsController.shared.isDarkMode {
 			textView.textColor = .white
