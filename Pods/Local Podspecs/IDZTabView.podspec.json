@@ -1,0 +1,25 @@
+{
+  "name": "IDZTabView",
+  "version": "0.0.9",
+  "summary": "A fork of TabView, which mimics Safari tabs on iOS",
+  "description": "TabView 0.0.9 - A fork of TabView, which mimics Safari tabs on iOS",
+  "homepage": "https://github.com/iOSDevZone/IDZTabView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "iOS Developer Zone": "idz@iosdeveloperzone.com"
+  },
+  "social_media_url": "http://twitter.com/iOSDevZone",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/iOSDevZone/IDZTabView.git",
+    "tag": "0.0.9"
+  },
+  "source_files": "Sources/**/*.swift",
+  "requires_arc": true,
+  "swift_version": "4.0"
+}

@@ -1,12 +1,24 @@
 PODS:
+  - IDZTabView (0.0.9)
   - SimulatorStatusMagic (1.9.5)
 
 DEPENDENCIES:
+  - IDZTabView (from `https://github.com/iOSDevZone/IDZTabView.git`)
   - SimulatorStatusMagic (~> 1.9)
 
+EXTERNAL SOURCES:
+  IDZTabView:
+    :git: https://github.com/iOSDevZone/IDZTabView.git
+
+CHECKOUT OPTIONS:
+  IDZTabView:
+    :commit: 9440ac35c2cdaa3f787b081de6d55e1566dc1d0d
+    :git: https://github.com/iOSDevZone/IDZTabView.git
+
 SPEC CHECKSUMS:
+  IDZTabView: 6b9d8c15b1f462991f1688bfc2e4e7e6f471a574
   SimulatorStatusMagic: b3b4c5c49a07e8b1c452cc0327275e267a865fea
 
-PODFILE CHECKSUM: e30934b3b06e8053e51120283d56c75edded16d8
+PODFILE CHECKSUM: 4d5fdb9d4369202855b31317428897f6d6794511
 
 COCOAPODS: 1.4.0

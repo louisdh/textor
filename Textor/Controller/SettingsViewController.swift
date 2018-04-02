@@ -14,14 +14,16 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var fontSizeStepper: UIStepper!
     @IBOutlet weak var fontSizeLabel: UILabel!
     @IBOutlet weak var darkThemeSwitch: UISwitch!
-
-    override func viewDidLoad() {
+	@IBOutlet weak var tabbedViewSwitch: UISwitch!
+	
+	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		fontSizeStepper.value = Double(UserDefaultsController.shared.fontSize)
         fontSizeLabel.text = "\(Int(fontSizeStepper.value))"
 
         darkThemeSwitch.isOn = UserDefaultsController.shared.isDarkMode
+		tabbedViewSwitch.isOn = UserDefaultsController.shared.isTabbed
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: .themeChanged, object: nil)
 		
@@ -52,6 +54,10 @@ class SettingsViewController: UITableViewController {
         NotificationCenter.default.post(name: .themeChanged, object: nil)
     }
 
+	@IBAction func tabbedChanged(_ sender: UISwitch) {
+		UserDefaultsController.shared.isTabbed = sender.isOn
+	}
+	
 	@objc
 	func didChangeTheme() {
 

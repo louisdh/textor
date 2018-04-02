@@ -8,5 +8,5 @@ inhibit_all_warnings!
 
 target 'Textor' do
 	pod 'SimulatorStatusMagic', '~> 1.9', :configurations => ['Debug']
-
+	pod 'IDZTabView', :git => 'https://github.com/iOSDevZone/IDZTabView.git'
 end

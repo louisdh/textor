@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3081396C2071A94500DF43A9 /* TabbedDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081396B2071A94500DF43A9 /* TabbedDocumentViewController.swift */; };
 		8A3FD70D1F2610010DF9625A /* Pods_Textor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E53ED7F36F7596674975E47 /* Pods_Textor.framework */; };
 		BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE000C251FF9451F00D06B91 /* AppDelegate.swift */; };
 		BE000C281FF9451F00D06B91 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0E53ED7F36F7596674975E47 /* Pods_Textor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Textor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3081396B2071A94500DF43A9 /* TabbedDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedDocumentViewController.swift; sourceTree = "<group>"; };
 		42FA62BBBE3A16CF4D515238 /* Pods-Textor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Textor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Textor/Pods-Textor.debug.xcconfig"; sourceTree = "<group>"; };
 		BE000C221FF9451F00D06B91 /* Textor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Textor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE000C251FF9451F00D06B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				BE000C271FF9451F00D06B91 /* DocumentBrowserViewController.swift */,
+				3081396B2071A94500DF43A9 /* TabbedDocumentViewController.swift */,
 				BE000C291FF9451F00D06B91 /* DocumentViewController.swift */,
 				BEFE544F20697B1000FEFE93 /* FontPickerViewController.swift */,
 				BED3CAB320543936007968FF /* SettingsViewController.swift */,
@@ -370,10 +373,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Textor/Pods-Textor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IDZTabView/IDZTabView.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDZTabView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +402,7 @@
 				BECE41042038DD45004889F0 /* UIColor+Named.swift in Sources */,
 				BE3BE749205B046E0044356A /* UITableViewCell+Labels.swift in Sources */,
 				BE000C261FF9451F00D06B91 /* AppDelegate.swift in Sources */,
+				3081396C2071A94500DF43A9 /* TabbedDocumentViewController.swift in Sources */,
 				BE5CE1132059AA2500158BE9 /* StoryboardFactory.swift in Sources */,
 				BED6707D201BB1B200D04AD5 /* KeyboardObserver.swift in Sources */,
 				BECE40FA2038DB67004889F0 /* UIViewController+Alerts.swift in Sources */,
@@ -562,11 +568,11 @@
 				CODE_SIGN_ENTITLEMENTS = Textor/Textor.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6G5LMQ72D8;
+				DEVELOPMENT_TEAM = GEA92R6RK9;
 				INFOPLIST_FILE = "$(SRCROOT)/Textor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.silverfox.plaintextedit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dannykeogan.plaintextedit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -583,11 +589,11 @@
 				CODE_SIGN_ENTITLEMENTS = Textor/Textor.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6G5LMQ72D8;
+				DEVELOPMENT_TEAM = GEA92R6RK9;
 				INFOPLIST_FILE = "$(SRCROOT)/Textor/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.silverfox.plaintextedit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dannykeogan.plaintextedit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
