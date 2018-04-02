@@ -10,6 +10,18 @@ import UIKit
 import IDZTabView
 
 
+///
+/// Container view controller that holds a set of tabbed `DocumentViewControllers`.
+///
+/// This contoller also implements presentation of `UIDocumentBrowserViewController`
+/// as a form sheet. The Apple documentation explicitly warns *not* to do this (see:
+/// [Adding a Document Browser to Your App](https://developer.apple.com/documentation/uikit/view_controllers/adding_a_document_browser_to_your_app) )
+/// BUT the recommended alternative `UIDocumentPickerViewController`does not provide
+/// control over the interface style, so looks awful in the dark theme. Furthermore,
+/// it seems to work just fine.
+/// Just in case, a user default is provided which can switch to the picker implementation
+/// although no user interface for this has been added to `SwttingsViewController`
+///
 class TabbedDocumentViewController: TabViewController {
 	/// The open view controller is created early and cached to avoid flashing when it is presented.
 	private var openVC: UIViewController! = nil
