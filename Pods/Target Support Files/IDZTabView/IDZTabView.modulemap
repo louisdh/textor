@@ -1,0 +1,6 @@
+framework module IDZTabView {
+  umbrella header "IDZTabView-umbrella.h"
+
+  export *
+  module * { export * }
+}

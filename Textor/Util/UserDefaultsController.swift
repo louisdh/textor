@@ -13,7 +13,7 @@ class UserDefaultsController {
 
 	static let shared = UserDefaultsController(userDefaults: .standard)
 
-	private var userDefaults: UserDefaults
+	var userDefaults: UserDefaults
 
 	private init(userDefaults: UserDefaults) {
 		self.userDefaults = userDefaults
@@ -40,6 +40,10 @@ class UserDefaultsController {
 			theme = newValue ? .dark : .light
 		}
 	}
+	
+
+	
+
 
 	var fontSize: CGFloat {
 		get {

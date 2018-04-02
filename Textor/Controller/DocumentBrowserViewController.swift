@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IDZTabView
 
 class DocumentBrowserViewController: UIDocumentBrowserViewController {
 
@@ -95,16 +96,31 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController {
 
 		let document = Document(fileURL: documentURL)
 		let documentViewController = UIStoryboard.main.documentViewController(document: document)
-
+		
 		transitionController = self.transitionController(forDocumentURL: documentURL)
 		transitionController?.targetView = documentViewController.textView
-
+		
 		documentViewController.title = documentURL.lastPathComponent
 
-		let navCon = UINavigationController(rootViewController: documentViewController)
+		var root: UIViewController
+		if UserDefaultsController.shared.isTabbed {
+			let tabViewController = TabbedDocumentViewController()
+			// It would be cleaner to just call `tabViewController.addTabs(forURLs: [documentURL])`
+			// here but there is some bug in TabView that causes a crash when adding a tab to an
+			// otherwise empty controller, so for the moment work around it.
+			let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: tabViewController, action: #selector(TabbedDocumentViewController.add(_:)))
+			documentViewController.navigationItem.rightBarButtonItems?.append(addButton)
+			tabViewController.viewControllers = [ documentViewController ]
+			root = tabViewController
+		}
+		else {
+			root = documentViewController
+		}
 
+		let navCon = UINavigationController(rootViewController: root)
+		navCon.navigationBar.barStyle = UserDefaultsController.shared.isDarkMode ? .black : .default
 		navCon.transitioningDelegate = self
-
+		
         present(navCon, animated: true, completion: nil)
     }
 
