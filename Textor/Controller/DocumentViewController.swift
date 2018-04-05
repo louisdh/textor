@@ -108,12 +108,15 @@ class DocumentViewController: UIViewController {
 	
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(saveDocument), name: .UIApplicationWillResignActive, object: nil)
 
     }
 
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
+		
+		NotificationCenter.default.removeObserver(self)
 
 		documentsClosed += 1
 
@@ -188,4 +191,19 @@ extension DocumentViewController: StoryboardIdentifiable {
 		return "DocumentViewController"
 	}
 	
+}
+
+extension DocumentViewController {
+	@objc func saveDocument() {
+		guard let document = self.document else {
+			return
+		}
+		let currentText = document.text ?? ""
+		
+		document.text = self.textView.text
+		
+		if currentText != self.textView.text {
+			document.save(to: document.fileURL, for: .forOverwriting, completionHandler: {success in print(success)})
+		}
+	}
 }
