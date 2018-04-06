@@ -52,7 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="BoZ-jc-2Y8"/>
                     </view>
                     <navigationItem key="navigationItem" id="19f-Vj-mN9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="41T-X8-FaZ">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="41T-X8-FaZ">
                             <connections>
                                 <action selector="dismissDocumentViewController" destination="M2k-L8-Olo" id="7FX-Q7-R0K"/>
                             </connections>
@@ -267,7 +267,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="About Textor" id="YpV-CU-A1U">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="7hw-sh-Kia">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="7hw-sh-Kia">
                             <connections>
                                 <action selector="close:" destination="3tO-c6-rtm" id="eZ7-iN-9Bg"/>
                             </connections>
