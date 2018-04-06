@@ -14,6 +14,9 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var fontSizeStepper: UIStepper!
     @IBOutlet weak var fontSizeLabel: UILabel!
     @IBOutlet weak var darkThemeSwitch: UISwitch!
+	
+	var defaultSeparatorColor: UIColor!
+	var invertedSeparatorColor: UIColor!
 
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,6 +27,10 @@ class SettingsViewController: UITableViewController {
         darkThemeSwitch.isOn = UserDefaultsController.shared.isDarkMode
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(didChangeTheme), name: .themeChanged, object: nil)
+		
+		defaultSeparatorColor = tableView.separatorColor
+		let components = defaultSeparatorColor.cgColor.components!
+		invertedSeparatorColor = UIColor(red: 1 - components[0], green: 1 - components[1], blue: 1 - components[2], alpha: components[3])
 		
 		updateTheme()
 	}
@@ -69,12 +76,12 @@ class SettingsViewController: UITableViewController {
 		case .light:
 			tableView.backgroundColor = .groupTableViewBackground
 			navigationController?.navigationBar.barStyle = .default
-			tableView.separatorColor = .gray
+			tableView.separatorColor = defaultSeparatorColor
 			
 		case .dark:
 			tableView.backgroundColor = .darkBackgroundColor
 			navigationController?.navigationBar.barStyle = .black
-			tableView.separatorColor = UIColor(white: 0.2, alpha: 1)
+			tableView.separatorColor = invertedSeparatorColor
 
 		}
 		
@@ -98,7 +105,7 @@ class SettingsViewController: UITableViewController {
 			}
 			
 		case .dark:
-			cell.backgroundColor = UIColor(white: 0.07, alpha: 1)
+			cell.backgroundColor = .clear
 			
 			for label in cell.subviewLabels() {
 				label.textColor = .white
