@@ -12,7 +12,7 @@ import UIKit
 extension UITableViewCell {
 
 	func subviewLabels() -> [UILabel] {
-		return deepSubviews().flatMap({ $0 as? UILabel })
+		return deepSubviews().compactMap({ $0 as? UILabel })
 	}
 	
 }
