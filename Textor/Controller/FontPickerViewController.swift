@@ -37,6 +37,10 @@ class FontPickerViewController: UITableViewController {
 		self.searchController.searchResultsUpdater = self
 		self.navigationItem.searchController = searchController
 		self.definesPresentationContext = true
+		
+		defaultSeparatorColor = tableView.separatorColor
+		let components = defaultSeparatorColor.cgColor.components!
+		invertedSeparatorColor = UIColor(red: 1 - components[0], green: 1 - components[1], blue: 1 - components[2], alpha: components[3])
     }
 	
 	func updateTheme() {
@@ -47,12 +51,12 @@ class FontPickerViewController: UITableViewController {
 		case .light:
 			tableView.backgroundColor = .white
 			navigationController?.navigationBar.barStyle = .default
-			tableView.separatorColor = .gray
+			tableView.separatorColor = defaultSeparatorColor
 			
 		case .dark:
 			tableView.backgroundColor = UIColor(white: 0.07, alpha: 1)
 			navigationController?.navigationBar.barStyle = .black
-			tableView.separatorColor = UIColor(white: 0.2, alpha: 1)
+			tableView.separatorColor = invertedSeparatorColor
 			
 		}
 		
