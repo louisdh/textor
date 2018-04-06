@@ -17,16 +17,24 @@ class FontPickerViewController: UITableViewController {
 		return searchController
 	}()
 	
-	let fonts: [String] = {
-		var allFonts = [String]()
-		let fontFamilys = UIFont.familyNames
-		for fontFamily in fontFamilys {
-			allFonts += UIFont.fontNames(forFamilyName: fontFamily)
+	let fonts: [Character: [String]] = Dictionary(grouping: UIFont.familyNames.flatMap(UIFont.fontNames(forFamilyName:)).sorted()) { font  in
+		if let character = font.uppercased().first,
+			let characterScalar = "\(character)".unicodeScalars.first,
+			CharacterSet.letters.contains(characterScalar) {
+			return character
+		} else {
+			// Fallback case, in case some installs a font that doesn't start
+			// with an alphabetical character
+			return "*" as Character
 		}
-		
-		return allFonts.sorted()
-	}()
-	var filteredFonts = [String]()
+	}
+	var filteredFonts = [Character: [String]]()
+	// Cache for getting a character for a given index, since ordinarily this
+	// would be O(n) on a String
+	var charactersForIndex: [Int: Character] = [:]
+	
+	var defaultSeparatorColor: UIColor!
+	var invertedSeparatorColor: UIColor!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +49,9 @@ class FontPickerViewController: UITableViewController {
 		defaultSeparatorColor = tableView.separatorColor
 		let components = defaultSeparatorColor.cgColor.components!
 		invertedSeparatorColor = UIColor(red: 1 - components[0], green: 1 - components[1], blue: 1 - components[2], alpha: components[3])
+		
+		// Do an initial pass to get the table view to populate
+		searchFonts(searchText: "")
     }
 	
 	func updateTheme() {
@@ -89,14 +100,26 @@ class FontPickerViewController: UITableViewController {
 	
 	func searchFonts(searchText: String) {
 		
-		filteredFonts = fonts.filter({ $0.lowercased().contains(searchText.lowercased()) })
+		filteredFonts = fonts
+		defer {
+			charactersForIndex = Dictionary(zip(0..., filteredFonts.keys.filter { character in
+					!filteredFonts[character]!.isEmpty
+				}.sorted())) { index, _ in
+				return index
+			}
+			tableView.reloadData()
+		}
 		
-		tableView.reloadData()
-	}
-	
-	func isSearching() -> Bool {
-		let isSearchBarEmpty = searchController.searchBar.text?.isEmpty ?? true
-		return searchController.isActive && !isSearchBarEmpty
+		guard !searchText.isEmpty else {
+			return
+		}
+		
+		for letter in filteredFonts.keys {
+			filteredFonts[letter] = filteredFonts[letter]!.filter { font in
+				font.lowercased().contains(searchText.lowercased())
+			}
+		}
+		
 	}
 	
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -113,12 +136,20 @@ class FontPickerViewController: UITableViewController {
 		
 	}
 	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if isSearching() {
-			return filteredFonts.count
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return filteredFonts.values.reduce(into: 0) { sections, fonts in
+			sections += (fonts.isEmpty ? 0 : 1)
 		}
-		
-		return fonts.count
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return filteredFonts[charactersForIndex[section]!]!.count
+	}
+	
+	override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+		return filteredFonts.keys.filter { character in
+			!filteredFonts[character]!.isEmpty
+			}.sorted().map(String.init)
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,11 +157,7 @@ class FontPickerViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		
 		var fontName: String
-		if isSearching() {
-			fontName = filteredFonts[indexPath.row]
-		} else {
-			fontName = fonts[indexPath.row]
-		}
+		fontName = filteredFonts[charactersForIndex[indexPath.section]!]![indexPath.row]
 		
 		cell.textLabel?.text = fontName
 		cell.textLabel?.font = UIFont(name: fontName, size: 16)
