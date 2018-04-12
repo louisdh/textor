@@ -109,15 +109,13 @@ class DocumentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(saveDocument), name: .UIApplicationWillResignActive, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(self.saveDocument), name: .UIApplicationWillResignActive, object: nil)
 
     }
 
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		
-		NotificationCenter.default.removeObserver(self)
-
 		documentsClosed += 1
 
 		if !hasAskedForReview && documentsClosed >= 4 {
@@ -154,14 +152,6 @@ class DocumentViewController: UIViewController {
 
     @IBAction func dismissDocumentViewController() {
 
-		let currentText = self.document?.text ?? ""
-
-		self.document?.text = self.textView.text
-
-		if currentText != self.textView.text {
-			self.document?.updateChangeCount(.done)
-		}
-
         dismiss(animated: true) {
             self.document?.close(completionHandler: nil)
         }
@@ -172,15 +162,7 @@ class DocumentViewController: UIViewController {
 extension DocumentViewController: UITextViewDelegate {
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
-		
-		let currentText = self.document?.text ?? ""
-		
-		self.document?.text = self.textView.text
-		
-		if currentText != self.textView.text {
-			self.document?.updateChangeCount(.done)
-		}
-
+		self.saveDocument()
 	}
 	
 }
@@ -194,16 +176,14 @@ extension DocumentViewController: StoryboardIdentifiable {
 }
 
 extension DocumentViewController {
-	@objc func saveDocument() {
-		guard let document = self.document else {
-			return
-		}
-		let currentText = document.text ?? ""
+    @objc func saveDocument() {
 		
-		document.text = self.textView.text
+        let currentText = self.document?.text ?? ""
 		
-		if currentText != self.textView.text {
-			document.save(to: document.fileURL, for: .forOverwriting, completionHandler: {success in print(success)})
-		}
-	}
+        self.document?.text = self.textView.text
+		
+        if currentText != self.textView.text {
+            self.document?.updateChangeCount(.done)
+        }
+    }
 }
