@@ -108,13 +108,14 @@ class DocumentViewController: UIViewController {
 	
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(self.saveDocument), name: .UIApplicationWillResignActive, object: nil)
 
     }
 
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
-
+		
 		documentsClosed += 1
 
 		if !hasAskedForReview && documentsClosed >= 4 {
@@ -151,14 +152,6 @@ class DocumentViewController: UIViewController {
 
     @IBAction func dismissDocumentViewController() {
 
-		let currentText = self.document?.text ?? ""
-
-		self.document?.text = self.textView.text
-
-		if currentText != self.textView.text {
-			self.document?.updateChangeCount(.done)
-		}
-
         dismiss(animated: true) {
             self.document?.close(completionHandler: nil)
         }
@@ -169,15 +162,7 @@ class DocumentViewController: UIViewController {
 extension DocumentViewController: UITextViewDelegate {
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
-		
-		let currentText = self.document?.text ?? ""
-		
-		self.document?.text = self.textView.text
-		
-		if currentText != self.textView.text {
-			self.document?.updateChangeCount(.done)
-		}
-
+		self.saveDocument()
 	}
 	
 }
@@ -188,4 +173,17 @@ extension DocumentViewController: StoryboardIdentifiable {
 		return "DocumentViewController"
 	}
 	
+}
+
+extension DocumentViewController {
+    @objc func saveDocument() {
+		
+        let currentText = self.document?.text ?? ""
+		
+        self.document?.text = self.textView.text
+		
+        if currentText != self.textView.text {
+            self.document?.updateChangeCount(.done)
+        }
+    }
 }
