@@ -30,9 +30,12 @@
 #import "SDStatusBarOverriderPost9_3.h"
 #import "SDStatusBarOverriderPost10_0.h"
 #import "SDStatusBarOverriderPost10_3.h"
+#import "SDStatusBarOverriderPost11_0.h"
 
 static NSString * const SDStatusBarManagerUsingOverridesKey = @"using_overrides";
 static NSString * const SDStatusBarManagerBluetoothStateKey = @"bluetooth_state";
+static NSString * const SDStatusBarManagerNetworkTypeKey = @"network_type";
+static NSString * const SDStatusBarManagerCarrierNameKey = @"carrier_name";
 static NSString * const SDStatusBarManagerTimeStringKey = @"time_string";
 
 @interface SDStatusBarManager ()
@@ -63,6 +66,7 @@ static NSString * const SDStatusBarManagerTimeStringKey = @"time_string";
   self.overrider.bluetoothEnabled = self.bluetoothState != SDStatusBarManagerBluetoothHidden;
   self.overrider.bluetoothConnected = self.bluetoothState == SDStatusBarManagerBluetoothVisibleConnected;
   self.overrider.batteryDetailEnabled = self.batteryDetailEnabled;
+  self.overrider.networkType = self.networkType;
 
   [self.overrider enableOverrides];
 }
@@ -101,6 +105,38 @@ static NSString * const SDStatusBarManagerTimeStringKey = @"time_string";
   return [[self.userDefaults valueForKey:SDStatusBarManagerBluetoothStateKey] integerValue];
 }
 
+- (void)setNetworkType:(SDStatusBarManagerNetworkType)networkType
+{
+  if (self.networkType == networkType) return;
+  
+  [self.userDefaults setValue:@(networkType) forKey:SDStatusBarManagerNetworkTypeKey];
+  
+  if (self.usingOverrides) {
+    [self enableOverrides];
+  }
+}
+
+- (SDStatusBarManagerNetworkType)networkType
+{
+  return [[self.userDefaults valueForKey:SDStatusBarManagerNetworkTypeKey] integerValue];
+}
+
+- (void)setCarrierName:(NSString *)carrierName
+{
+  if ([self.carrierName isEqualToString:carrierName]) return;
+  
+  [self.userDefaults setObject:carrierName forKey:SDStatusBarManagerCarrierNameKey];
+  
+  if (self.usingOverrides) {
+    [self enableOverrides];
+  }
+}
+
+- (NSString *)carrierName
+{
+  return [self.userDefaults valueForKey:SDStatusBarManagerCarrierNameKey];
+}
+
 - (void)setTimeString:(NSString *)timeString
 {
   if ([self.timeString isEqualToString:timeString]) return;
@@ -129,7 +165,9 @@ static NSString * const SDStatusBarManagerTimeStringKey = @"time_string";
 {
   id<SDStatusBarOverrider> overrider = nil;
   NSProcessInfo *pi = [NSProcessInfo processInfo];
-  if ([pi isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){ 10, 3, 0 }]) {
+  if ([pi isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){ 11, 0, 0 }]) {
+    overrider = [SDStatusBarOverriderPost11_0 new];
+  } else if ([pi isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){ 10, 3, 0 }]) {
     overrider = [SDStatusBarOverriderPost10_3 new];
   } else if ([pi isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){ 10, 0, 0 }]) {
     overrider = [SDStatusBarOverriderPost10_0 new];
